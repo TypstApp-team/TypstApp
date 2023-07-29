@@ -1,0 +1,8 @@
+app_identifier("dev.tiankaima.TypstApp") # The bundle identifier of your app
+apple_id("tiankaima@163.com") # Your Apple Developer Portal username
+
+itc_team_id("125015830") # App Store Connect Team ID
+team_id("VUW8FV5HN5") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
