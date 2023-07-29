@@ -26,6 +26,7 @@ struct PDFView: UIViewRepresentable {
         if singlePage {
             pdfView.displayMode = .singlePage
         }
+        pdfView.backgroundColor = .white
         return pdfView
     }
 

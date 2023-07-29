@@ -52,16 +52,15 @@ struct TypstFile: FileDocument {
 extension TypstFile {
     func renderPDF() -> PDFDocument? {
         let fm = FileManager.default
-        let fileName = UUID().uuidString
+        let fileName = UUID(name: title, nameSpace: .oid).uuidString
         let baseURL = fm.urls(for: .documentDirectory, in: .allDomainsMask)[0]
         let tmpDocumentURL = baseURL.appendingPathComponent(fileName, conformingTo: .typstDocument)
         let tmpPDFURL = baseURL.appendingPathComponent(fileName, conformingTo: .pdf)
 
         fm.createFile(atPath: tmpDocumentURL.path, contents: code.data(using: .utf8))
-        debugPrint(try! String(contentsOf: tmpDocumentURL))
         run("typst compile \(tmpDocumentURL.path)")
         let pdf = PDFDocument(url: tmpPDFURL)
-        try? fm.removeItem(at: tmpPDFURL)
+//        try? fm.removeItem(at: tmpPDFURL)
         try? fm.removeItem(at: tmpDocumentURL)
         return pdf
     }
