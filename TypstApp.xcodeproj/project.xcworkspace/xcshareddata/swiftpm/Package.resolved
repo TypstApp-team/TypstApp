@@ -3,7 +3,7 @@
     {
       "identity" : "codeeditorview",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mchakravarty/CodeEditorView",
+      "location" : "https://github.com/tiankaima/CodeEditorView",
       "state" : {
         "branch" : "main",
         "revision" : "db971c1b8b6ad31c48780e84b6eafbd6187fe02b"
@@ -16,6 +16,15 @@
       "state" : {
         "revision" : "0fb658e721c68495f6340c211cc6d4719e6b52d8",
         "version" : "1.6.0"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect.git",
+      "state" : {
+        "revision" : "ccb973cfff703cba53fb88197413485c060eb26b",
+        "version" : "0.10.0"
       }
     }
   ],

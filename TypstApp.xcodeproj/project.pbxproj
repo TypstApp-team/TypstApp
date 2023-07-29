@@ -15,9 +15,12 @@
 		56C5D15C2A7445420008F156 /* SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5D15B2A7445420008F156 /* SwiftExtension.swift */; };
 		56DF95622A7410AD0020F420 /* libtypst_library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DF95612A7410AD0020F420 /* libtypst_library.a */; };
 		56DF95642A74135A0020F420 /* libtypst_library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DF95632A74135A0020F420 /* libtypst_library.a */; };
-		56DF95672A7417C30020F420 /* CodeEditorView in Frameworks */ = {isa = PBXBuildFile; productRef = 56DF95662A7417C30020F420 /* CodeEditorView */; };
-		56DF95692A7417C30020F420 /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 56DF95682A7417C30020F420 /* LanguageSupport */; };
 		56E0F1582A74D6FC00AF917C /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0F1572A74D6FC00AF917C /* PDFView.swift */; };
+		56E0F15B2A74E63C00AF917C /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 56E0F15A2A74E63C00AF917C /* Introspect */; };
+		56E0F15D2A74E63C00AF917C /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 56E0F15C2A74E63C00AF917C /* SwiftUIIntrospect */; };
+		56E0F1602A74E73700AF917C /* CodeEditorView in Frameworks */ = {isa = PBXBuildFile; productRef = 56E0F15F2A74E73700AF917C /* CodeEditorView */; };
+		56E0F1622A74E73700AF917C /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 56E0F1612A74E73700AF917C /* LanguageSupport */; };
+		56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0F1632A74E8FD00AF917C /* TypstLang.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,7 @@
 		56DF95612A7410AD0020F420 /* libtypst_library.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtypst_library.a; path = typst/target/universal/release/libtypst_library.a; sourceTree = "<group>"; };
 		56DF95632A74135A0020F420 /* libtypst_library.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtypst_library.a; path = typst/target/universal/debug/libtypst_library.a; sourceTree = "<group>"; };
 		56E0F1572A74D6FC00AF917C /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
+		56E0F1632A74E8FD00AF917C /* TypstLang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstLang.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,11 +45,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56E0F15D2A74E63C00AF917C /* SwiftUIIntrospect in Frameworks */,
 				56DF95642A74135A0020F420 /* libtypst_library.a in Frameworks */,
+				56E0F1622A74E73700AF917C /* LanguageSupport in Frameworks */,
+				56E0F15B2A74E63C00AF917C /* Introspect in Frameworks */,
+				56E0F1602A74E73700AF917C /* CodeEditorView in Frameworks */,
 				56DF95622A7410AD0020F420 /* libtypst_library.a in Frameworks */,
 				566067FC2A73CD54006A73C5 /* libresolv.tbd in Frameworks */,
-				56DF95692A7417C30020F420 /* LanguageSupport in Frameworks */,
-				56DF95672A7417C30020F420 /* CodeEditorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,7 @@
 				56C5D1582A7443030008F156 /* TypstFile.swift */,
 				56C5D15B2A7445420008F156 /* SwiftExtension.swift */,
 				56E0F1572A74D6FC00AF917C /* PDFView.swift */,
+				56E0F1632A74E8FD00AF917C /* TypstLang.swift */,
 			);
 			path = TypstApp;
 			sourceTree = "<group>";
@@ -114,8 +121,10 @@
 			);
 			name = TypstApp;
 			packageProductDependencies = (
-				56DF95662A7417C30020F420 /* CodeEditorView */,
-				56DF95682A7417C30020F420 /* LanguageSupport */,
+				56E0F15A2A74E63C00AF917C /* Introspect */,
+				56E0F15C2A74E63C00AF917C /* SwiftUIIntrospect */,
+				56E0F15F2A74E73700AF917C /* CodeEditorView */,
+				56E0F1612A74E73700AF917C /* LanguageSupport */,
 			);
 			productName = TypstApp;
 			productReference = 56C403162A73CBEB00BB8743 /* TypstApp.app */;
@@ -146,7 +155,8 @@
 			);
 			mainGroup = 56C4030D2A73CBEB00BB8743;
 			packageReferences = (
-				56DF95652A7417C30020F420 /* XCRemoteSwiftPackageReference "CodeEditorView" */,
+				56E0F1592A74E63C00AF917C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				56E0F15E2A74E73700AF917C /* XCRemoteSwiftPackageReference "CodeEditorView" */,
 			);
 			productRefGroup = 56C403172A73CBEB00BB8743 /* Products */;
 			projectDirPath = "";
@@ -216,6 +226,7 @@
 				56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */,
 				56C5D1592A7443030008F156 /* TypstFile.swift in Sources */,
 				56E0F1582A74D6FC00AF917C /* PDFView.swift in Sources */,
+				56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */,
 				56C5D15C2A7445420008F156 /* SwiftExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,9 +469,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		56DF95652A7417C30020F420 /* XCRemoteSwiftPackageReference "CodeEditorView" */ = {
+		56E0F1592A74E63C00AF917C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mchakravarty/CodeEditorView";
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
+		56E0F15E2A74E73700AF917C /* XCRemoteSwiftPackageReference "CodeEditorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tiankaima/CodeEditorView";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -469,14 +488,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		56DF95662A7417C30020F420 /* CodeEditorView */ = {
+		56E0F15A2A74E63C00AF917C /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 56DF95652A7417C30020F420 /* XCRemoteSwiftPackageReference "CodeEditorView" */;
+			package = 56E0F1592A74E63C00AF917C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+		56E0F15C2A74E63C00AF917C /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56E0F1592A74E63C00AF917C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+		56E0F15F2A74E73700AF917C /* CodeEditorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56E0F15E2A74E73700AF917C /* XCRemoteSwiftPackageReference "CodeEditorView" */;
 			productName = CodeEditorView;
 		};
-		56DF95682A7417C30020F420 /* LanguageSupport */ = {
+		56E0F1612A74E73700AF917C /* LanguageSupport */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 56DF95652A7417C30020F420 /* XCRemoteSwiftPackageReference "CodeEditorView" */;
+			package = 56E0F15E2A74E73700AF917C /* XCRemoteSwiftPackageReference "CodeEditorView" */;
 			productName = LanguageSupport;
 		};
 /* End XCSwiftPackageProductDependency section */

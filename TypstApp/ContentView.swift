@@ -10,12 +10,9 @@ import CodeEditorView
 import PDFKit
 
 struct ContentView: View {
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
     @Binding var document: TypstFile
     @State var codeEditorPosition: CodeEditor.Position = .init()
-    enum FocusedField {
-        case editor
-    }
-    @FocusState private var focusedField: FocusedField?
     @State var pdf: PDFDocument?
     @State var isRenderding: Bool = false
 
@@ -30,8 +27,11 @@ struct ContentView: View {
             HStack {
                 CodeEditor(text: $document.code,
                            position: $codeEditorPosition,
-                           messages: .constant(.init()))
-                .focused($focusedField, equals: .editor)
+                           messages: .constant(.init()),
+                           language: .typst(),
+                           layout: .init(showMinimap: true, wrapText: true))
+                .environment(\.codeEditorTheme,
+                              colorScheme == .dark ? Theme.defaultDark : Theme.defaultLight)
 
                 if let pdf {
                     Divider()
@@ -55,9 +55,11 @@ struct ContentView: View {
                 ToolbarItemGroup(placement: .principal) {
                     Button {
                         Task.detached {
-                            self.isRenderding = true
-                            self.pdf = document.renderPDF()
-                            self.isRenderding = false
+                            withAnimation {
+                                self.isRenderding = true
+                                self.pdf = document.renderPDF()
+                                self.isRenderding = false
+                            }
                         }
                     } label: {
                         Label("Refresh", systemImage: "arrowtriangle.right.fill")
