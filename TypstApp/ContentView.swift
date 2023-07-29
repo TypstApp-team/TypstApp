@@ -17,6 +17,7 @@ struct ContentView: View {
     }
     @FocusState private var focusedField: FocusedField?
     @State var pdf: PDFDocument?
+    @State var isRenderding: Bool = false
 
     var body: some View {
         NavigationSplitView {
@@ -37,12 +38,27 @@ struct ContentView: View {
                     PDFView(pdf)
                 }
             }
+            .overlay(alignment: .bottom) {
+                if isRenderding {
+                    Text("Rendering")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background {
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(.red)
+                        }
+                }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItemGroup(placement: .principal) {
                     Button {
-                        self.pdf = document.renderPDF()
+                        Task.detached {
+                            self.isRenderding = true
+                            self.pdf = document.renderPDF()
+                            self.isRenderding = false
+                        }
                     } label: {
                         Label("Refresh", systemImage: "arrowtriangle.right.fill")
                     }

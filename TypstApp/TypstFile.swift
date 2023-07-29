@@ -61,8 +61,8 @@ extension TypstFile {
         debugPrint(try! String(contentsOf: tmpDocumentURL))
         run("typst compile \(tmpDocumentURL.path)")
         let pdf = PDFDocument(url: tmpPDFURL)
-        try! fm.removeItem(at: tmpPDFURL)
-        try! fm.removeItem(at: tmpDocumentURL)
+        try? fm.removeItem(at: tmpPDFURL)
+        try? fm.removeItem(at: tmpDocumentURL)
         return pdf
     }
 }
