@@ -27,7 +27,7 @@ struct TypstFile: FileDocument {
         }
 
         self.code = code
-        self.title = configuration.file.filename ?? "Untitled"
+        self.title = configuration.file.filename ?? "Untitled.typs"
     }
 
     init() {
@@ -50,7 +50,7 @@ struct TypstFile: FileDocument {
 }
 
 extension TypstFile {
-    func renderPDFData() -> Data? {
+    func renderPDF() -> PDFDocument? {
         let fm = FileManager.default
         let fileName = UUID().uuidString
         let baseURL = fm.urls(for: .documentDirectory, in: .allDomainsMask)[0]
@@ -60,9 +60,9 @@ extension TypstFile {
         fm.createFile(atPath: tmpDocumentURL.path, contents: code.data(using: .utf8))
         debugPrint(try! String(contentsOf: tmpDocumentURL))
         run("typst compile \(tmpDocumentURL.path)")
-        let pdfData = PDFDocument(url: tmpPDFURL)?.dataRepresentation()
+        let pdf = PDFDocument(url: tmpPDFURL)
         try! fm.removeItem(at: tmpPDFURL)
         try! fm.removeItem(at: tmpDocumentURL)
-        return pdfData
+        return pdf
     }
 }

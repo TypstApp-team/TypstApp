@@ -12,7 +12,11 @@ import PDFKit
 struct ContentView: View {
     @Binding var document: TypstFile
     @State var codeEditorPosition: CodeEditor.Position = .init()
-    @State var pdfData: Data?
+    enum FocusedField {
+        case editor
+    }
+    @FocusState private var focusedField: FocusedField?
+    @State var pdf: PDFDocument?
 
     var body: some View {
         NavigationSplitView {
@@ -21,16 +25,16 @@ struct ContentView: View {
             }
             .navigationTitle(document.title)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden()
         } detail: {
             HStack {
                 CodeEditor(text: $document.code,
                            position: $codeEditorPosition,
                            messages: .constant(.init()))
+                .focused($focusedField, equals: .editor)
 
-                if let pdfData {
+                if let pdf {
                     Divider()
-                    PDFView(pdfData)
+                    PDFView(pdf)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -38,7 +42,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .principal) {
                     Button {
-                        self.pdfData = document.renderPDFData()
+                        self.pdf = document.renderPDF()
                     } label: {
                         Label("Refresh", systemImage: "arrowtriangle.right.fill")
                     }

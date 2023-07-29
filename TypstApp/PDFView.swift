@@ -11,17 +11,17 @@ import PDFKit
 struct PDFView: UIViewRepresentable {
     typealias UIViewType = PDFKit.PDFView
 
-    let data: Data
+    let document: PDFDocument
     let singlePage: Bool
 
-    init(_ data: Data, singlePage: Bool = false) {
-        self.data = data
+    init(_ document: PDFDocument, singlePage: Bool = false) {
+        self.document = document
         self.singlePage = singlePage
     }
 
     func makeUIView(context _: UIViewRepresentableContext<PDFView>) -> UIViewType {
         let pdfView = PDFKit.PDFView()
-        pdfView.document = PDFKit.PDFDocument(data: data)
+        pdfView.document = document
         pdfView.autoScales = true
         if singlePage {
             pdfView.displayMode = .singlePage
@@ -30,6 +30,6 @@ struct PDFView: UIViewRepresentable {
     }
 
     func updateUIView(_ pdfView: UIViewType, context _: UIViewRepresentableContext<PDFView>) {
-        pdfView.document = PDFKit.PDFDocument(data: data)
+        pdfView.document = document
     }
 }
