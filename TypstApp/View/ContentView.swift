@@ -7,8 +7,6 @@
 
 import PDFKit
 import SwiftUI
-import UIKit
-import Runestone
 
 struct TypstTitle {
     var id = UUID()
@@ -37,62 +35,10 @@ extension [TypstTitle] {
     }
 }
 
-struct RunestoneView: UIViewRepresentable {
-    typealias Context = UIViewRepresentableContext<RunestoneView>
-    
-    @Binding var text: String
-    
-    func makeUIView(context: Context) -> TextView {
-        let textView = TextView()
-        textView.showLineNumbers = true
-        textView.lineSelectionDisplayType = .lineFragment
-        textView.showPageGuide = true
-        textView.pageGuideColumn = 80
-        textView.showTabs = true
-        textView.showSpaces = true
-//        textView.showLineBreaks = true
-//        textView.showSoftLineBreaks = true
-        textView.editorDelegate = context.coordinator
-        textView.setLanguageMode(TreeSitterLanguageMode(language: .typst))
-        textView.theme = TomorrowTheme()
-        return textView
-    }
-    
-    func updateUIView(_ textView: TextView, context: Context) {
-        if !context.coordinator.isEditing {
-            textView.text = text
-        }
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(text: $text)
-    }
-    
-    class Coordinator: NSObject, TextViewDelegate {
-        var text: Binding<String>
-        var isEditing: Bool = false
-        
-        init(text: Binding<String>) {
-            self.text = text
-        }
-        
-        func textViewDidChange(_ textView: TextView) {
-            self.text.wrappedValue = textView.text
-        }
-        
-        func textViewDidBeginEditing(_ textView: TextView) {
-            self.isEditing = true
-        }
-        
-        func textViewDidEndEditing(_ textView: TextView) {
-            self.isEditing = false
-        }
-    }
-}
 
 struct ContentView: View {
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
-    @AppStorage("autorefresh") var autorefresh = true
+    @AppStorage("autorefresh") var autoBuild = true
 
     @Binding var document: TypstFile
     @State var pdf: PDFDocument?
@@ -107,7 +53,11 @@ struct ContentView: View {
     func render() {
         withAnimation {
             self.isRendering = true
-            self.pdf = document.renderPDF()
+        }
+        
+        self.pdf = document.renderPDF()
+        
+        withAnimation(.smooth(duration: 3)) {
             self.isRendering = false
             self.titles = .parseFrom(document.code)
         }
@@ -126,20 +76,9 @@ struct ContentView: View {
                         self.focusedField = .field
                     }
 
-                if let pdf {
+                if let _ = pdf {
                     Divider()
-                    PDFView(pdf)
-                }
-            }
-            .overlay(alignment: .bottom) {
-                if isRendering {
-                    Text("Rendering")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background {
-                            RoundedRectangle(cornerRadius: 5)
-                                .fill(.red)
-                        }
+                    PDFView(Binding($pdf)!)
                 }
             }
             .ignoresSafeArea(.keyboard)
@@ -148,39 +87,40 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     Button {
-                        Task.detached {
-                            render()
-                        }
+                        render()
                     } label: {
-                        Label(
-                            "Refresh",
-                            systemImage: "arrowtriangle.right.fill"
-                        )
+                        if isRendering {
+                            Text("Rendering")
+                                .foregroundColor(.red)
+                        } else {
+                            Text("Build")
+                        }
                     }
-                    .disabled(isRendering)
                     .keyboardShortcut("r", modifiers: .command)
                     
-                    Toggle(isOn: $autorefresh) {
-                        Text("Auto refresh")
+                    Toggle(isOn: $autoBuild) {
+                        Text("Auto Build")
                     }
-                }
+                    
+                    
 
-                if let pdf {
-                    ToolbarItemGroup(placement: .topBarTrailing) {
-                        ShareLink(item: pdf.documentURL!)
+                    if let pdf {
+                        ShareLink(item: pdf.documentURL!) {
+                            Text("Share")
+                        }
                     }
                 }
             }
             .onAppear {
                 Task.detached {
                     var oldValue = ""
-                    while autorefresh {
+                    repeat {
                         if oldValue != document.code {
                             render()
                             oldValue = document.code
                         }
                         try await Task.sleep(nanoseconds: 2_000_000_000)  // refresh every 2 sec
-                    }
+                    } while autoBuild
                 }
             }
         }
