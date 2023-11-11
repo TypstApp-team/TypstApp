@@ -16,9 +16,9 @@ jobs:
           - name: Compile rust proj
             run: |
                 cd typst
-                rustup target add x86_64-apple-ios
+                rustup target add aarch64-apple-ios
                 cargo install cargo-lipo
-                cargo lipo --release --targets x86_64-apple-ios
+                cargo lipo --release --targets aarch64-apple-ios
           - name: Build & Beta
             run: fastlane ios beta > build.log
             env:
