@@ -32,7 +32,7 @@ struct TypstFile {
 
     /// New document
     init() {
-        self.code = "= Example Document\n#lorem(1000)"
+        self.code = try! String(contentsOf: Bundle.main.url(forResource: "Example", withExtension: ".typ")!, encoding: .utf8)
         self.title = "Untitled"
     }
 }

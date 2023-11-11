@@ -15,4 +15,8 @@
 
 int32_t run(const uint8_t *arguments);
 
+typedef struct TSLanguage TSLanguage;
+
+const TSLanguage *tree_sitter_typst(void);
+
 #endif /* Header_h */

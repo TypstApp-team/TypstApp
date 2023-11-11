@@ -1,21 +1,21 @@
 {
   "pins" : [
     {
-      "identity" : "swiftui-introspect",
+      "identity" : "runestone",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/siteline/SwiftUI-Introspect.git",
+      "location" : "https://github.com/simonbs/Runestone",
       "state" : {
-        "revision" : "ccb973cfff703cba53fb88197413485c060eb26b",
-        "version" : "0.10.0"
+        "revision" : "00dee9fbc9c93b709f6b1b052bce84cb971e493a",
+        "version" : "0.3.2"
       }
     },
     {
-      "identity" : "swiftymonaco",
+      "identity" : "tree-sitter",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ICToolkit/SwiftyMonaco",
+      "location" : "https://github.com/simonbs/tree-sitter",
       "state" : {
-        "branch" : "main",
-        "revision" : "9ea13943ff032238c8c85508f36c53a3b1555f49"
+        "revision" : "f88ae4ebe351d8aa99c31a17111607017d805118",
+        "version" : "0.20.9-beta-1"
       }
     }
   ],

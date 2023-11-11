@@ -7,8 +7,8 @@
 
 import PDFKit
 import SwiftUI
-import SwiftUIIntrospect
-import SwiftyMonaco
+import UIKit
+import Runestone
 
 struct TypstTitle {
     var id = UUID()
@@ -37,8 +37,62 @@ extension [TypstTitle] {
     }
 }
 
+struct RunestoneView: UIViewRepresentable {
+    typealias Context = UIViewRepresentableContext<RunestoneView>
+    
+    @Binding var text: String
+    
+    func makeUIView(context: Context) -> TextView {
+        let textView = TextView()
+        textView.showLineNumbers = true
+        textView.lineSelectionDisplayType = .lineFragment
+        textView.showPageGuide = true
+        textView.pageGuideColumn = 80
+        textView.showTabs = true
+        textView.showSpaces = true
+//        textView.showLineBreaks = true
+//        textView.showSoftLineBreaks = true
+        textView.editorDelegate = context.coordinator
+        textView.setLanguageMode(TreeSitterLanguageMode(language: .typst))
+        textView.theme = TomorrowTheme()
+        return textView
+    }
+    
+    func updateUIView(_ textView: TextView, context: Context) {
+        if !context.coordinator.isEditing {
+            textView.text = text
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(text: $text)
+    }
+    
+    class Coordinator: NSObject, TextViewDelegate {
+        var text: Binding<String>
+        var isEditing: Bool = false
+        
+        init(text: Binding<String>) {
+            self.text = text
+        }
+        
+        func textViewDidChange(_ textView: TextView) {
+            self.text.wrappedValue = textView.text
+        }
+        
+        func textViewDidBeginEditing(_ textView: TextView) {
+            self.isEditing = true
+        }
+        
+        func textViewDidEndEditing(_ textView: TextView) {
+            self.isEditing = false
+        }
+    }
+}
+
 struct ContentView: View {
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @AppStorage("autorefresh") var autorefresh = true
 
     @Binding var document: TypstFile
     @State var pdf: PDFDocument?
@@ -66,11 +120,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             HStack {
-                SwiftyMonaco(text: $document.code)
-                    .syntaxHighlight(.cpp)
-                    //                    .syntaxHighlight(.init(title: "", configuration: ""))
-                    //                    .syntaxHighlight(.typst)
-                    .scrollIndicators(.hidden)
+                RunestoneView(text: $document.code)
                     .focused($focusedField, equals: .field)
                     .onAppear {
                         self.focusedField = .field
@@ -95,7 +145,6 @@ struct ContentView: View {
             .ignoresSafeArea(.keyboard)
             .navigationTitle(document.title)
             .navigationBarTitleDisplayMode(.inline)
-            //            .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     Button {
@@ -110,6 +159,10 @@ struct ContentView: View {
                     }
                     .disabled(isRendering)
                     .keyboardShortcut("r", modifiers: .command)
+                    
+                    Toggle(isOn: $autorefresh) {
+                        Text("Auto refresh")
+                    }
                 }
 
                 if let pdf {
@@ -121,7 +174,7 @@ struct ContentView: View {
             .onAppear {
                 Task.detached {
                     var oldValue = ""
-                    while true {
+                    while autorefresh {
                         if oldValue != document.code {
                             render()
                             oldValue = document.code

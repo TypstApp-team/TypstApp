@@ -36,8 +36,12 @@ extension TypstFile {
             atPath: tmpDocsURL.path,
             contents: code.data(using: .utf8)
         )
-
-        run("typst compile \(tmpDocsURL.path) \(tmpPDFURL.path)")
+        
+        let tmpDocsPath = tmpDocsURL.path.replacing(" ", with: "\\ ")
+        let tmpPDFPath = tmpPDFURL.path.replacing(" ", with: "\\ ")
+        
+        print("typst compile \(tmpDocsPath) \(tmpPDFPath)")
+        run("typst compile \(tmpDocsPath) \(tmpPDFPath)")
         let pdf = PDFDocument(url: tmpPDFURL)
         return pdf
     }
