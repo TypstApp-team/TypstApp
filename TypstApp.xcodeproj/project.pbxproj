@@ -14,33 +14,49 @@
 		56C4031E2A73CBEC00BB8743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C4031D2A73CBEC00BB8743 /* Assets.xcassets */; };
 		56C5D1592A7443030008F156 /* TypstFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5D1582A7443030008F156 /* TypstFile.swift */; };
 		56C5D15C2A7445420008F156 /* SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5D15B2A7445420008F156 /* SwiftExtension.swift */; };
-		56DF95622A7410AD0020F420 /* libtypst_library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DF95612A7410AD0020F420 /* libtypst_library.a */; };
-		56DF95642A74135A0020F420 /* libtypst_library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DF95632A74135A0020F420 /* libtypst_library.a */; };
 		56E0F1582A74D6FC00AF917C /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0F1572A74D6FC00AF917C /* PDFView.swift */; };
 		56E0F15B2A74E63C00AF917C /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 56E0F15A2A74E63C00AF917C /* Introspect */; };
 		56E0F15D2A74E63C00AF917C /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 56E0F15C2A74E63C00AF917C /* SwiftUIIntrospect */; };
-		56E0F1602A74E73700AF917C /* CodeEditorView in Frameworks */ = {isa = PBXBuildFile; productRef = 56E0F15F2A74E73700AF917C /* CodeEditorView */; };
-		56E0F1622A74E73700AF917C /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 56E0F1612A74E73700AF917C /* LanguageSupport */; };
 		56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0F1632A74E8FD00AF917C /* TypstLang.swift */; };
+		56F5E8362AFF41E30051C039 /* libtypst_library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DF95632A74135A0020F420 /* libtypst_library.a */; };
+		56FD0AA32AB31496000AB46A /* Typst.js in Resources */ = {isa = PBXBuildFile; fileRef = 56FD0AA22AB31496000AB46A /* Typst.js */; };
+		56FE41A62AB1DFC800A09A37 /* TypstRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE41A52AB1DFC800A09A37 /* TypstRender.swift */; };
+		56FE41A92AB1ECA400A09A37 /* SwiftyMonaco in Frameworks */ = {isa = PBXBuildFile; productRef = 56FE41A82AB1ECA400A09A37 /* SwiftyMonaco */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		56818B8A2AB1EF3100116E43 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		563230EA2A751C1F00B69D3A /* UUIDExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtension.swift; sourceTree = "<group>"; };
 		563230EC2A75228300B69D3A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		56483EF32A73E83800BD8AA8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		566067FB2A73CD54006A73C5 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		566375BA2AFF388D00E26BF8 /* libtypst_library.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtypst_library.a; path = "typst/target/aarch64-apple-ios/release/libtypst_library.a"; sourceTree = "<group>"; };
 		56C403162A73CBEB00BB8743 /* TypstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C403192A73CBEB00BB8743 /* TypstApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstApp.swift; sourceTree = "<group>"; };
 		56C4031B2A73CBEB00BB8743 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		56C4031D2A73CBEC00BB8743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56C5D1552A742FE70008F156 /* TypstApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TypstApp.entitlements; sourceTree = "<group>"; };
 		56C5D1582A7443030008F156 /* TypstFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstFile.swift; sourceTree = "<group>"; };
-		56C5D15A2A7444170008F156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		56C5D15A2A7444170008F156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56C5D15B2A7445420008F156 /* SwiftExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtension.swift; sourceTree = "<group>"; };
 		56DF95612A7410AD0020F420 /* libtypst_library.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtypst_library.a; path = typst/target/universal/release/libtypst_library.a; sourceTree = "<group>"; };
 		56DF95632A74135A0020F420 /* libtypst_library.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtypst_library.a; path = typst/target/universal/debug/libtypst_library.a; sourceTree = "<group>"; };
 		56E0F1572A74D6FC00AF917C /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
 		56E0F1632A74E8FD00AF917C /* TypstLang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstLang.swift; sourceTree = "<group>"; };
+		56FD0AA22AB31496000AB46A /* Typst.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Typst.js; sourceTree = "<group>"; };
+		56FE41A52AB1DFC800A09A37 /* TypstRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstRender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,13 +64,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56E0F1602A74E73700AF917C /* CodeEditorView in Frameworks */,
 				56E0F15B2A74E63C00AF917C /* Introspect in Frameworks */,
-				56E0F1622A74E73700AF917C /* LanguageSupport in Frameworks */,
 				566067FC2A73CD54006A73C5 /* libresolv.tbd in Frameworks */,
-				56DF95642A74135A0020F420 /* libtypst_library.a in Frameworks */,
-				56DF95622A7410AD0020F420 /* libtypst_library.a in Frameworks */,
+				56F5E8362AFF41E30051C039 /* libtypst_library.a in Frameworks */,
 				56E0F15D2A74E63C00AF917C /* SwiftUIIntrospect in Frameworks */,
+				56FE41A92AB1ECA400A09A37 /* SwiftyMonaco in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				566067FB2A73CD54006A73C5 /* libresolv.tbd */,
+				566375BA2AFF388D00E26BF8 /* libtypst_library.a */,
 				56DF95612A7410AD0020F420 /* libtypst_library.a */,
 				56DF95632A74135A0020F420 /* libtypst_library.a */,
 				563230EC2A75228300B69D3A /* SwiftUI.framework */,
@@ -101,18 +116,52 @@
 		56C403182A73CBEB00BB8743 /* TypstApp */ = {
 			isa = PBXGroup;
 			children = (
+				56FE41A12AB1DC6200A09A37 /* Assets */,
+				56FE41A22AB1DC7E00A09A37 /* Bridge */,
 				563230E92A751C1100B69D3A /* Extension */,
-				56C4031D2A73CBEC00BB8743 /* Assets.xcassets */,
-				56C4031B2A73CBEB00BB8743 /* ContentView.swift */,
-				56483EF32A73E83800BD8AA8 /* Header.h */,
-				56C5D15A2A7444170008F156 /* Info.plist */,
-				56E0F1572A74D6FC00AF917C /* PDFView.swift */,
-				56C5D1552A742FE70008F156 /* TypstApp.entitlements */,
+				56FE41A42AB1DCB400A09A37 /* Model */,
+				56FE41A32AB1DC9F00A09A37 /* View */,
 				56C403192A73CBEB00BB8743 /* TypstApp.swift */,
-				56C5D1582A7443030008F156 /* TypstFile.swift */,
-				56E0F1632A74E8FD00AF917C /* TypstLang.swift */,
 			);
 			path = TypstApp;
+			sourceTree = "<group>";
+		};
+		56FE41A12AB1DC6200A09A37 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				56C4031D2A73CBEC00BB8743 /* Assets.xcassets */,
+				56C5D15A2A7444170008F156 /* Info.plist */,
+				56FD0AA22AB31496000AB46A /* Typst.js */,
+				56C5D1552A742FE70008F156 /* TypstApp.entitlements */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		56FE41A22AB1DC7E00A09A37 /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				56483EF32A73E83800BD8AA8 /* Header.h */,
+			);
+			path = Bridge;
+			sourceTree = "<group>";
+		};
+		56FE41A32AB1DC9F00A09A37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56C4031B2A73CBEB00BB8743 /* ContentView.swift */,
+				56E0F1572A74D6FC00AF917C /* PDFView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56FE41A42AB1DCB400A09A37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56C5D1582A7443030008F156 /* TypstFile.swift */,
+				56E0F1632A74E8FD00AF917C /* TypstLang.swift */,
+				56FE41A52AB1DFC800A09A37 /* TypstRender.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,10 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56C403242A73CBEC00BB8743 /* Build configuration list for PBXNativeTarget "TypstApp" */;
 			buildPhases = (
-				566067FE2A73CDE1006A73C5 /* Run Script */,
 				56C403122A73CBEB00BB8743 /* Sources */,
 				56C403132A73CBEB00BB8743 /* Frameworks */,
 				56C403142A73CBEB00BB8743 /* Resources */,
+				56818B8A2AB1EF3100116E43 /* Embed Frameworks */,
+				566375C02AFF3AE600E26BF8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -135,8 +185,7 @@
 			packageProductDependencies = (
 				56E0F15A2A74E63C00AF917C /* Introspect */,
 				56E0F15C2A74E63C00AF917C /* SwiftUIIntrospect */,
-				56E0F15F2A74E73700AF917C /* CodeEditorView */,
-				56E0F1612A74E73700AF917C /* LanguageSupport */,
+				56FE41A82AB1ECA400A09A37 /* SwiftyMonaco */,
 			);
 			productName = TypstApp;
 			productReference = 56C403162A73CBEB00BB8743 /* TypstApp.app */;
@@ -168,7 +217,7 @@
 			mainGroup = 56C4030D2A73CBEB00BB8743;
 			packageReferences = (
 				56E0F1592A74E63C00AF917C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
-				56E0F15E2A74E73700AF917C /* XCRemoteSwiftPackageReference "CodeEditorView" */,
+				56FE41A72AB1ECA400A09A37 /* XCRemoteSwiftPackageReference "SwiftyMonaco" */,
 			);
 			productRefGroup = 56C403172A73CBEB00BB8743 /* Products */;
 			projectDirPath = "";
@@ -185,31 +234,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C4031E2A73CBEC00BB8743 /* Assets.xcassets in Resources */,
+				56FD0AA32AB31496000AB46A /* Typst.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		566067FE2A73CDE1006A73C5 /* Run Script */ = {
+		566375C02AFF3AE600E26BF8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"$(SRCROOT)/typst/crates",
 			);
 			inputPaths = (
 			);
-			name = "Run Script";
 			outputFileListPaths = (
-				"$(SRCROOT)/typst/target/universal",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$HOME/.cargo/bin:$PATH\"\ncargo lipo --xcode-integ --manifest-path ./typst/Cargo.toml\n";
+			shellScript = "rm -fv ./typst/target/universal/*/*.a\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -224,6 +273,7 @@
 				56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */,
 				56C5D1592A7443030008F156 /* TypstFile.swift in Sources */,
 				56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */,
+				56FE41A62AB1DFC800A09A37 /* TypstRender.swift in Sources */,
 				563230EB2A751C1F00B69D3A /* UUIDExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TypstApp/TypstApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TypstApp/Assets/TypstApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -365,7 +415,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/typst/";
-				INFOPLIST_FILE = TypstApp/Info.plist;
+				INFOPLIST_FILE = TypstApp/Assets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TypstApp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -381,8 +431,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/typst/target/universal/$(CONFIGURATION:lower)",
-					"$(PROJECT_DIR)/typst/target/universal/release",
 					"$(PROJECT_DIR)/typst/target/universal/debug",
+					"$(PROJECT_DIR)/typst/target/universal/release",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.tiankaima.TypstApp;
@@ -390,9 +440,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TypstApp/Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TypstApp/Bridge/Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -403,7 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TypstApp/TypstApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TypstApp/Assets/TypstApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -413,7 +463,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/typst/";
-				INFOPLIST_FILE = TypstApp/Info.plist;
+				INFOPLIST_FILE = TypstApp/Assets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TypstApp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -429,8 +479,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/typst/target/universal/$(CONFIGURATION:lower)",
-					"$(PROJECT_DIR)/typst/target/universal/release",
 					"$(PROJECT_DIR)/typst/target/universal/debug",
+					"$(PROJECT_DIR)/typst/target/universal/release",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.tiankaima.TypstApp;
@@ -438,9 +488,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TypstApp/Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TypstApp/Bridge/Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -478,9 +528,9 @@
 				minimumVersion = 0.10.0;
 			};
 		};
-		56E0F15E2A74E73700AF917C /* XCRemoteSwiftPackageReference "CodeEditorView" */ = {
+		56FE41A72AB1ECA400A09A37 /* XCRemoteSwiftPackageReference "SwiftyMonaco" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tiankaima/CodeEditorView";
+			repositoryURL = "https://github.com/ICToolkit/SwiftyMonaco";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -499,15 +549,10 @@
 			package = 56E0F1592A74E63C00AF917C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
 		};
-		56E0F15F2A74E73700AF917C /* CodeEditorView */ = {
+		56FE41A82AB1ECA400A09A37 /* SwiftyMonaco */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 56E0F15E2A74E73700AF917C /* XCRemoteSwiftPackageReference "CodeEditorView" */;
-			productName = CodeEditorView;
-		};
-		56E0F1612A74E73700AF917C /* LanguageSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 56E0F15E2A74E73700AF917C /* XCRemoteSwiftPackageReference "CodeEditorView" */;
-			productName = LanguageSupport;
+			package = 56FE41A72AB1ECA400A09A37 /* XCRemoteSwiftPackageReference "SwiftyMonaco" */;
+			productName = SwiftyMonaco;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

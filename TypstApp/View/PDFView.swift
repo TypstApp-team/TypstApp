@@ -5,8 +5,8 @@
 //  Created by Tiankai Ma on 2023/7/29.
 //
 
-import SwiftUI
 import PDFKit
+import SwiftUI
 
 struct PDFView: UIViewRepresentable {
     typealias UIViewType = PDFKit.PDFView
@@ -19,7 +19,9 @@ struct PDFView: UIViewRepresentable {
         self.singlePage = singlePage
     }
 
-    func makeUIView(context _: UIViewRepresentableContext<PDFView>) -> UIViewType {
+    func makeUIView(context _: UIViewRepresentableContext<PDFView>)
+        -> UIViewType
+    {
         let pdfView = PDFKit.PDFView()
         pdfView.document = document
         pdfView.autoScales = true
@@ -30,7 +32,10 @@ struct PDFView: UIViewRepresentable {
         return pdfView
     }
 
-    func updateUIView(_ pdfView: UIViewType, context _: UIViewRepresentableContext<PDFView>) {
+    func updateUIView(
+        _ pdfView: UIViewType,
+        context _: UIViewRepresentableContext<PDFView>
+    ) {
         pdfView.document = document
     }
 }

@@ -5,22 +5,49 @@
 //  Created by Tiankai Ma on 2023/7/28.
 //
 
-import SwiftUI
-import CodeEditorView
-import SwiftUIIntrospect
 import PDFKit
+import SwiftUI
+import SwiftUIIntrospect
+import SwiftyMonaco
+
+struct TypstTitle {
+    var id = UUID()
+    var depth: Int
+    var content: String
+}
+
+extension [TypstTitle] {
+    static func parseFrom(_ code: String) -> [TypstTitle] {
+        // 1. split by \n
+        // 2. remove leading and trailing spaces
+        // 3. count "=" at the beginning -> depth
+        // 4. remove "=" at the beginning -> content
+
+        code
+            .split(separator: "\n")
+            .compactMap { line in
+                let trimmed = line.trimmingCharacters(in: .whitespaces)
+                let depth = trimmed.prefix(while: { $0 == "=" }).count
+                let content = trimmed.drop(while: { $0 == "=" })
+                if depth == 0 {
+                    return nil
+                }
+                return TypstTitle(depth: depth, content: String(content))
+            }
+    }
+}
 
 struct ContentView: View {
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
+
     @Binding var document: TypstFile
-    @State var codeEditorPosition: CodeEditor.Position = .init()
+    @State var pdf: PDFDocument?
+    @State var titles: [TypstTitle] = []
 
     enum FocusField: Hashable {
         case field
     }
     @FocusState private var focusedField: FocusField?
-
-    @State var pdf: PDFDocument?
     @State var isRendering: Bool = false
 
     func render() {
@@ -28,6 +55,7 @@ struct ContentView: View {
             self.isRendering = true
             self.pdf = document.renderPDF()
             self.isRendering = false
+            self.titles = .parseFrom(document.code)
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(500)) {
@@ -36,15 +64,12 @@ struct ContentView: View {
     }
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                Text("TBC")
-            }
-            .navigationTitle(document.title)
-            .navigationBarTitleDisplayMode(.inline)
-        } detail: {
+        NavigationStack {
             HStack {
-                TextEditor(text: $document.code)
+                SwiftyMonaco(text: $document.code)
+                    .syntaxHighlight(.cpp)
+                    //                    .syntaxHighlight(.init(title: "", configuration: ""))
+                    //                    .syntaxHighlight(.typst)
                     .scrollIndicators(.hidden)
                     .focused($focusedField, equals: .field)
                     .onAppear {
@@ -68,8 +93,9 @@ struct ContentView: View {
                 }
             }
             .ignoresSafeArea(.keyboard)
+            .navigationTitle(document.title)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden()
+            //            .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     Button {
@@ -77,7 +103,10 @@ struct ContentView: View {
                             render()
                         }
                     } label: {
-                        Label("Refresh", systemImage: "arrowtriangle.right.fill")
+                        Label(
+                            "Refresh",
+                            systemImage: "arrowtriangle.right.fill"
+                        )
                     }
                     .disabled(isRendering)
                     .keyboardShortcut("r", modifiers: .command)
@@ -89,21 +118,18 @@ struct ContentView: View {
                     }
                 }
             }
-            .task {
+            .onAppear {
                 Task.detached {
-                    render() // awaiting rendering result
-                    var oldValue = document.code
-
+                    var oldValue = ""
                     while true {
                         if oldValue != document.code {
                             render()
                             oldValue = document.code
                         }
-                        try await Task.sleep(nanoseconds: 2_000_000_000) // refresh every 2 sec
+                        try await Task.sleep(nanoseconds: 2_000_000_000)  // refresh every 2 sec
                     }
                 }
             }
         }
-        .toolbar(.hidden, for: .navigationBar) // Used only on simulator to fix swifUI bug
     }
 }
