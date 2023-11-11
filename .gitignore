@@ -1,2 +1,5 @@
 **/xcuserdata/
 .DS_Store
+TypstApp.app.dSYM.zip
+TypstApp.ipa
+.env
