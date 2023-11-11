@@ -424,7 +424,7 @@
 					"$(PROJECT_DIR)/typst/target/universal/debug",
 					"$(PROJECT_DIR)/typst/target/universal/release",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.tiankaima.TypstApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -472,7 +472,7 @@
 					"$(PROJECT_DIR)/typst/target/universal/debug",
 					"$(PROJECT_DIR)/typst/target/universal/release",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.tiankaima.TypstApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
