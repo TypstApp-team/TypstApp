@@ -17,7 +17,7 @@ var docsURL: URL {
 }
 
 extension TypstFile {
-    func renderPDF() -> PDFDocument? {
+    func renderPDF() -> (pdf: PDFDocument?, url: URL?) {
         let fm = FileManager.default
         let dirURL = docsURL.appending(path: self.id.uuidString)
         let tmpDocsURL = dirURL.appendingPathComponent(
@@ -42,6 +42,6 @@ extension TypstFile {
         
         run("typst compile \(tmpDocsPath) \(tmpPDFPath)")
         let pdf = PDFDocument(url: tmpPDFURL)
-        return pdf
+        return (pdf, tmpPDFURL)
     }
 }

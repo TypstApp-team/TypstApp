@@ -29,13 +29,19 @@ struct RunestoneView: UIViewRepresentable {
         textView.setLanguageMode(TreeSitterLanguageMode(language: .typst))
         textView.theme = TomorrowTheme()
         
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name("RunestoneGetFoucs"),
-            object: nil,
-            queue: OperationQueue.main
-        ) { _ in
-            print("???")
-            textView.becomeFirstResponder()
+//        NotificationCenter.default.addObserver(
+//            forName: NSNotification.Name("RunestoneGetFoucs"),
+//            object: nil,
+//            queue: OperationQueue.main
+//        ) { _ in
+//            print("???")
+//            textView.becomeFirstResponder()
+//        }
+        Task.detached {
+            repeat {
+                try await Task.sleep(nanoseconds: 5_000_000)
+                await textView.becomeFirstResponder()
+            } while true
         }
         
         return textView

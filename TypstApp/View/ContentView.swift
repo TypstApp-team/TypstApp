@@ -14,7 +14,9 @@ struct ContentView: View {
     
     @AppStorage("autorefresh") var autoBuild = true
     
-    @State var pdf: PDFDocument?
+//    @State var pdf: PDFDocument?
+    @State var pdfShouldUpdate: Bool = true
+    @State var pdfURL: URL? // nil if not rendered, yet.
     @State var titles: [TypstTitle] = []
     @State var isRendering: Bool = false
     
@@ -23,23 +25,17 @@ struct ContentView: View {
             self.isRendering = true
         }
         
-        self.pdf = document.renderPDF()
-        
-        withAnimation(.smooth(duration: 3)) {
-            self.isRendering = false
-            self.titles = .parseFrom(document.code)
+        if self.pdfURL == nil {
+            (_, self.pdfURL) = document.renderPDF()
+        } else {
+            // prevent swiftUI update itself ??
+            _ = document.renderPDF()
         }
         
-        Task { @MainActor in
-            // ensuring main thread for notification
-            DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(500)) {
-                // offset to ensure the notification is sent after the animation
-                NotificationCenter.default.post(
-                    name: NSNotification.Name("RunestoneGetFoucs"),
-                    object: nil
-                )
-            }
-        }
+        pdfShouldUpdate.toggle()
+        self.isRendering = false
+        self.titles = .parseFrom(document.code)
+        print(self.titles)
     }
     
     var body: some View {
@@ -47,9 +43,9 @@ struct ContentView: View {
             HStack {
                 RunestoneView(text: $document.code)
                 
-                if let _ = pdf {
+                if let url = pdfURL {
                     Divider()
-                    PDFView(Binding($pdf)!)
+                    PDFKitReprentedView(pdfShouldUpdate: $pdfShouldUpdate, url: url)
                 }
             }
         }
@@ -74,8 +70,8 @@ struct ContentView: View {
                     Text("Auto Build")
                 }
                 
-                if let pdf {
-                    ShareLink(item: pdf.documentURL!) {
+                if let url = pdfURL {
+                    ShareLink(item: url) {
                         Text("Share")
                     }
                 }
