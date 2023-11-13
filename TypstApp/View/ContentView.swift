@@ -82,8 +82,6 @@ struct ContentView: View {
                 }
             }
             .ignoresSafeArea(.keyboard)
-            .navigationTitle(document.title)
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     Button {
