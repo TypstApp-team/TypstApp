@@ -1,35 +1,36 @@
 //
 //  DocumentViewController.swift
-//  TypstApp2
+//  TypstApp
 //
 //  Created by TianKai Ma on 2023/11/13.
 //
 
 import UIKit
+import Runestone
 
 class DocumentViewController: UIDocumentViewController {
-
-    @IBOutlet weak var documentNameLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateViewsIfNecessary()
     }
-
+    
     override func documentDidOpen() {
         super.documentDidOpen()
         self.updateViewsIfNecessary()
     }
-
+    
     func updateViewsIfNecessary() {
         // Check if the document is open and the view is loaded
         guard let document, !document.documentState.contains(.closed) else { return }
         guard isViewLoaded else { return }
-
-        // Display the content of the document, e.g.:
-        self.documentNameLabel.text = document.localizedName
+        
+        let textView = TextView()
+        
+        self.view.frame = .infinite
+        self.view.addSubview(textView)
     }
-
+    
     @IBAction func dismissDocumentViewController() {
         dismiss(animated: true)
     }

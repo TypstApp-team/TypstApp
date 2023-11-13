@@ -14,6 +14,11 @@
 		56156CD32B0220B700CE96BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56156CD12B0220B700CE96BC /* Main.storyboard */; };
 		56156CD52B0220B700CE96BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56156CD42B0220B700CE96BC /* Assets.xcassets */; };
 		56156CD82B0220B700CE96BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56156CD62B0220B700CE96BC /* LaunchScreen.storyboard */; };
+		56156CFE2B02314300CE96BC /* Example.typ in Resources */ = {isa = PBXBuildFile; fileRef = 56F5E83E2AFF5FB90051C039 /* Example.typ */; };
+		56156CFF2B02314C00CE96BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C4031D2A73CBEC00BB8743 /* Assets.xcassets */; };
+		56156D002B02314F00CE96BC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56F5E8462AFF69DF0051C039 /* Colors.xcassets */; };
+		56156D032B02319900CE96BC /* DocumentMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56156D022B02319900CE96BC /* DocumentMainView.swift */; };
+		56156D052B02337200CE96BC /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = 56156D042B02337200CE96BC /* Runestone */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +30,8 @@
 		56156CD22B0220B700CE96BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56156CD42B0220B700CE96BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56156CD72B0220B700CE96BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		563230EC2A75228300B69D3A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		56156D022B02319900CE96BC /* DocumentMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentMainView.swift; sourceTree = "<group>"; };
 		56483EF32A73E83800BD8AA8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		566067FB2A73CD54006A73C5 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		56C4031D2A73CBEC00BB8743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56C5D1552A742FE70008F156 /* TypstApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TypstApp.entitlements; sourceTree = "<group>"; };
 		56C5D1582A7443030008F156 /* TypstFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstFile.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56156D052B02337200CE96BC /* Runestone in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +61,8 @@
 		56156CC82B0220B700CE96BC /* TypstApp */ = {
 			isa = PBXGroup;
 			children = (
-				56FE41A42AB1DCB400A09A37 /* Model */,
+				56156D012B02318000CE96BC /* Views */,
+				56FE41A42AB1DCB400A09A37 /* Models */,
 				56FE41A22AB1DC7E00A09A37 /* Bridge */,
 				56FE41A12AB1DC6200A09A37 /* Assets */,
 				56156CC92B0220B700CE96BC /* AppDelegate.swift */,
@@ -70,12 +76,18 @@
 			path = TypstApp;
 			sourceTree = "<group>";
 		};
+		56156D012B02318000CE96BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				56156D022B02319900CE96BC /* DocumentMainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		566067F92A73CD0F006A73C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				566067FB2A73CD54006A73C5 /* libresolv.tbd */,
 				56F5E8402AFF65250051C039 /* libtypst_library.a */,
-				563230EC2A75228300B69D3A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,7 +130,7 @@
 			path = Bridge;
 			sourceTree = "<group>";
 		};
-		56FE41A42AB1DCB400A09A37 /* Model */ = {
+		56FE41A42AB1DCB400A09A37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				56F5E83A2AFF537C0051C039 /* parser.c */,
@@ -127,7 +139,7 @@
 				56E0F1632A74E8FD00AF917C /* TypstLang.swift */,
 				56FE41A52AB1DFC800A09A37 /* TypstRender.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +158,9 @@
 			dependencies = (
 			);
 			name = TypstApp;
+			packageProductDependencies = (
+				56156D042B02337200CE96BC /* Runestone */,
+			);
 			productName = TypstApp2;
 			productReference = 56156CC72B0220B700CE96BC /* TypstApp.app */;
 			productType = "com.apple.product-type.application";
@@ -193,7 +208,10 @@
 			files = (
 				56156CD82B0220B700CE96BC /* LaunchScreen.storyboard in Resources */,
 				56156CD52B0220B700CE96BC /* Assets.xcassets in Resources */,
+				56156CFE2B02314300CE96BC /* Example.typ in Resources */,
+				56156D002B02314F00CE96BC /* Colors.xcassets in Resources */,
 				56156CD32B0220B700CE96BC /* Main.storyboard in Resources */,
+				56156CFF2B02314C00CE96BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56156CD02B0220B700CE96BC /* Document.swift in Sources */,
+				56156D032B02319900CE96BC /* DocumentMainView.swift in Sources */,
 				56156CCE2B0220B700CE96BC /* DocumentViewController.swift in Sources */,
 				56156CCC2B0220B700CE96BC /* DocumentBrowserViewController.swift in Sources */,
 				56156CCA2B0220B700CE96BC /* AppDelegate.swift in Sources */,
@@ -443,6 +462,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		56156D042B02337200CE96BC /* Runestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56F5E8372AFF51600051C039 /* XCRemoteSwiftPackageReference "Runestone" */;
+			productName = Runestone;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 56C4030E2A73CBEB00BB8743 /* Project object */;
 }

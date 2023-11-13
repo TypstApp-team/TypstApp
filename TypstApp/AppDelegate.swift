@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  TypstApp2
+//  TypstApp
 //
 //  Created by TianKai Ma on 2023/11/13.
 //

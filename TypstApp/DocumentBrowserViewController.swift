@@ -1,6 +1,6 @@
 //
 //  DocumentBrowserViewController.swift
-//  TypstApp2
+//  TypstApp
 //
 //  Created by TianKai Ma on 2023/11/13.
 //
@@ -34,12 +34,14 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
             URL?, UIDocumentBrowserViewController.ImportMode
         ) -> Void
     ) {
-        let newDocumentURL: URL? = nil
+        // load from Example.typ in Bundle:
+        let newDocumentURL = Bundle.main.url(forResource: "Example", withExtension: "typ")
+        debugPrint(newDocumentURL)
 
         // Set the URL for the new document here. Optionally, you can present a template chooser before calling the importHandler.
         // Make sure the importHandler is always called, even if the user cancels the creation request.
         if newDocumentURL != nil {
-            importHandler(newDocumentURL, .move)
+            importHandler(newDocumentURL, .copy)
         } else {
             importHandler(nil, .none)
         }
@@ -75,10 +77,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 
     // MARK: Document Presentation
     func presentDocument(at documentURL: URL) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let documentViewController =
-            storyBoard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
-        documentViewController.document = Document(fileURL: documentURL)
+        let documentViewController = DocumentViewController(document: Document(fileURL: documentURL))
         documentViewController.modalPresentationStyle = .fullScreen
 
         present(documentViewController, animated: true, completion: nil)
