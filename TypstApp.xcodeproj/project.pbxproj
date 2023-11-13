@@ -14,7 +14,6 @@
 		56156CD32B0220B700CE96BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56156CD12B0220B700CE96BC /* Main.storyboard */; };
 		56156CD52B0220B700CE96BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56156CD42B0220B700CE96BC /* Assets.xcassets */; };
 		56156CD82B0220B700CE96BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56156CD62B0220B700CE96BC /* LaunchScreen.storyboard */; };
-		56156CFD2B02221400CE96BC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56156CFC2B02221400CE96BC /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +25,6 @@
 		56156CD22B0220B700CE96BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56156CD42B0220B700CE96BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56156CD72B0220B700CE96BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		56156CFB2B0220BC00CE96BC /* TypstApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TypstApp copy-Info.plist"; path = "/Volumes/WD_SN580/Source/TypstApp/TypstApp copy-Info.plist"; sourceTree = "<absolute>"; };
-		56156CFC2B02221400CE96BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		563230EC2A75228300B69D3A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		56483EF32A73E83800BD8AA8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		566067FB2A73CD54006A73C5 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
@@ -89,7 +86,6 @@
 				56156CC82B0220B700CE96BC /* TypstApp */,
 				56C403172A73CBEB00BB8743 /* Products */,
 				566067F92A73CD0F006A73C5 /* Frameworks */,
-				56156CFB2B0220BC00CE96BC /* TypstApp copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,7 +100,6 @@
 		56FE41A12AB1DC6200A09A37 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				56156CFC2B02221400CE96BC /* Info.plist */,
 				56C4031D2A73CBEC00BB8743 /* Assets.xcassets */,
 				56F5E8462AFF69DF0051C039 /* Colors.xcassets */,
 				56F5E83E2AFF5FB90051C039 /* Example.typ */,
@@ -196,7 +191,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56156CFD2B02221400CE96BC /* Info.plist in Resources */,
 				56156CD82B0220B700CE96BC /* LaunchScreen.storyboard in Resources */,
 				56156CD52B0220B700CE96BC /* Assets.xcassets in Resources */,
 				56156CD32B0220B700CE96BC /* Main.storyboard in Resources */,
