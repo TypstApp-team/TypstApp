@@ -43,9 +43,11 @@ enum HighlightName: String {
             }
             comps.removeLast()
         }
-        print("Unrecognized highlight name: '\(rawHighlightName)'."
-              + " Add the highlight name to HighlightName.swift if you want to add support for syntax highlighting it."
-              + " This message will only be shown once per highlight name.")
+        print(
+            "Unrecognized highlight name: '\(rawHighlightName)'."
+                + " Add the highlight name to HighlightName.swift if you want to add support for syntax highlighting it."
+                + " This message will only be shown once per highlight name."
+        )
         return nil
     }
 }
@@ -112,10 +114,9 @@ public final class TomorrowTheme: Theme {
     }
 
     public func fontTraits(for rawHighlightName: String) -> FontTraits {
-        if let highlightName = HighlightName(rawHighlightName), highlightName == .keyword {
-            return .bold
-        } else {
+        guard let highlightName = HighlightName(rawHighlightName), highlightName == .keyword else {
             return []
         }
+        return .bold
     }
 }
