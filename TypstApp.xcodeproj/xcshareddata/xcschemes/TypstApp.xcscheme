@@ -5,24 +5,6 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "perl &quot;${PROJECT_DIR}/sort-xcode-project-file&quot; &quot;${PROJECT_FILE_PATH}/project.pbxproj&quot;&#10;">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "56C403152A73CBEB00BB8743"
-                     BuildableName = "TypstApp.app"
-                     BlueprintName = "TypstApp"
-                     ReferencedContainer = "container:TypstApp.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -32,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56C403152A73CBEB00BB8743"
+               BlueprintIdentifier = "56156CC62B0220B700CE96BC"
                BuildableName = "TypstApp.app"
                BlueprintName = "TypstApp"
                ReferencedContainer = "container:TypstApp.xcodeproj">
@@ -61,7 +43,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "56C403152A73CBEB00BB8743"
+            BlueprintIdentifier = "56156CC62B0220B700CE96BC"
             BuildableName = "TypstApp.app"
             BlueprintName = "TypstApp"
             ReferencedContainer = "container:TypstApp.xcodeproj">
@@ -78,7 +60,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "56C403152A73CBEB00BB8743"
+            BlueprintIdentifier = "56156CC62B0220B700CE96BC"
             BuildableName = "TypstApp.app"
             BlueprintName = "TypstApp"
             ReferencedContainer = "container:TypstApp.xcodeproj">
