@@ -20,7 +20,7 @@ extension [TypstTitle] {
         // 2. remove leading and trailing spaces
         // 3. count "=" at the beginning -> depth
         // 4. remove "=" at the beginning -> content
-
+        
         code
             .split(separator: "\n")
             .compactMap { line in
@@ -38,46 +38,43 @@ extension [TypstTitle] {
 
 struct ContentView: View {
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
-    @AppStorage("autorefresh") var autoBuild = true
-
     @Binding var document: TypstFile
+    
+    @AppStorage("autorefresh") var autoBuild = true
+    
     @State var pdf: PDFDocument?
     @State var titles: [TypstTitle] = []
-
-    enum FocusField: Hashable {
-        case field
-    }
-    @FocusState private var focusedField: FocusField?
     @State var isRendering: Bool = false
-
+    
     func render() {
         withAnimation {
             self.isRendering = true
         }
         
-        Task.detached {
-            self.pdf = document.renderPDF()
-        }
+        self.pdf = document.renderPDF()
         
         withAnimation(.smooth(duration: 3)) {
             self.isRendering = false
             self.titles = .parseFrom(document.code)
         }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(500)) {
-            self.focusedField = .field
+        
+        Task { @MainActor in
+            // ensuring main thread for notification
+            DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(500)) {
+                // offset to ensure the notification is sent after the animation
+                NotificationCenter.default.post(
+                    name: NSNotification.Name("RunestoneGetFoucs"),
+                    object: nil
+                )
+            }
         }
     }
-
+    
     var body: some View {
         NavigationStack {
             HStack {
                 RunestoneView(text: $document.code)
-                    .focused($focusedField, equals: .field)
-                    .onAppear {
-                        self.focusedField = .field
-                    }
-
+                
                 if let _ = pdf {
                     Divider()
                     PDFView(Binding($pdf)!)
@@ -98,14 +95,12 @@ struct ContentView: View {
                 } label: {
                     Text("Build")
                 }
-                .disabled(isRendering)
+                .disabled(isRendering) // prevents multiple builds
                 .keyboardShortcut("r", modifiers: .command)
                 
                 Toggle(isOn: $autoBuild) {
                     Text("Auto Build")
                 }
-                
-                
                 
                 if let pdf {
                     ShareLink(item: pdf.documentURL!) {
@@ -123,7 +118,7 @@ struct ContentView: View {
                         oldValue = document.code
                     }
                     try await Task.sleep(nanoseconds: 2_000_000_000)  // refresh every 2 sec
-                } while autoBuild
+                } while autoBuild // using repeat-while so that a first render is always called
             }
         }
     }
