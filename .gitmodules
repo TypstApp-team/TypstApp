@@ -2,6 +2,6 @@
 	path = typst
 	url = git@github.com:TypstApp-team/typst.git
 
-[submodule "TypstLangAssets"]
+[submodule "TypstApp/TypstLangAssets"]
 	path = TypstApp/TypstLangAssets
 	url = git@github.com:TypstApp-team/TypstLangAssets.git
