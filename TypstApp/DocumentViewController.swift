@@ -10,6 +10,8 @@ import Runestone
 
 class DocumentViewController: UIDocumentViewController {
     
+    @IBOutlet weak var documentNameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateViewsIfNecessary()
@@ -25,9 +27,20 @@ class DocumentViewController: UIDocumentViewController {
         guard let document, !document.documentState.contains(.closed) else { return }
         guard isViewLoaded else { return }
         
-        let textView = TextView()
+        self.view = UIView()
         
-        self.view.frame = .infinite
+        let textView = TextView()
+        textView.showLineNumbers = true
+        textView.showPageGuide = true
+        textView.theme = DefaultTheme()
+        textView.text = """
+GO FUCK YOURSELF
+"""
+        
+        let text = UITextView()
+        text.text = "TEST"
+        self.view.addSubview(text)
+        
         self.view.addSubview(textView)
     }
     
