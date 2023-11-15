@@ -32,7 +32,10 @@ struct TypstFile {
 
     /// New document
     init() {
-        self.code = try! String(contentsOf: Bundle.main.url(forResource: "Example", withExtension: ".typ")!, encoding: .utf8)
+        self.code = try! String(
+            contentsOf: Bundle.main.url(forResource: "Example", withExtension: ".typ")!,
+            encoding: .utf8
+        )
         self.title = "Untitled"
     }
 }
@@ -77,7 +80,7 @@ extension [TypstTitle] {
         // 2. remove leading and trailing spaces
         // 3. count "=" at the beginning -> depth
         // 4. remove "=" at the beginning -> content
-        
+
         code
             .split(separator: "\n")
             .compactMap { line in
