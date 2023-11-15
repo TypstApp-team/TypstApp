@@ -14,11 +14,7 @@ struct EditorView: UIViewRepresentable {
     typealias Context = UIViewRepresentableContext<EditorView>
 
     @Binding var document: TypstFile
-
-    var text: Binding<String> {
-        _document.code
-    }
-
+    
     var url: URL {
         document.renderedPDFURL
     }
@@ -44,6 +40,8 @@ struct EditorView: UIViewRepresentable {
         textView.setLanguageMode(TreeSitterLanguageMode.typst)
         textView.autocorrectionType = .no
         textView.autocapitalizationType = .none
+        textView.smartQuotesType = .no
+        textView.text = document.code
 
         pdfView.document = PDFDocument(url: url)
         pdfView.autoScales = true
@@ -56,38 +54,32 @@ struct EditorView: UIViewRepresentable {
     }
 
     func updateUIView(_ view: UIStackView, context: Context) {
-        if run_once {
-            // fill the text when first load
-            (view.subviews.first as! TextView).text = text.wrappedValue
-        }
         document.renderPDF()
         (view.subviews.last as! PDFView).document = PDFDocument(url: url)
-
         view.subviews.first?.becomeFirstResponder()
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(text: text)
+        Coordinator(document: $document)
     }
 
     class Coordinator: NSObject, TextViewDelegate {
-        var text: Binding<String>
-        var isEditing: Bool = false
+        var document: Binding<TypstFile>
 
-        init(text: Binding<String>) {
-            self.text = text
+        init(document: Binding<TypstFile>) {
+            self.document = document
         }
-
+        
         func textViewDidChange(_ textView: TextView) {
-            self.text.wrappedValue = textView.text
+            DispatchQueue.main.async {
+                self.document.wrappedValue.code = textView.text
+            }
         }
-
-        func textViewDidBeginEditing(_ textView: TextView) {
-            self.isEditing = true
-        }
-
+        
         func textViewDidEndEditing(_ textView: TextView) {
-            self.isEditing = false
+            Task.detached {
+                self.document.wrappedValue.renderPDF()
+            }
         }
     }
 }

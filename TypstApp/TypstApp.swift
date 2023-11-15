@@ -14,7 +14,7 @@ struct TypstApp: App {
 
     var body: some Scene {
         DocumentGroup(newDocument: TypstFile()) { config in
-            EditorView(document: config.$document)
+            ContentView(document: config.$document)
                 .toolbarRole(.navigationStack)
         }
     }
