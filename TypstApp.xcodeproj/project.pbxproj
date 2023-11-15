@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		563230EB2A751C1F00B69D3A /* UUIDExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563230EA2A751C1F00B69D3A /* UUIDExtension.swift */; };
+		564859F32B04C63B00FB2879 /* TomorrowTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564859F22B04C63B00FB2879 /* TomorrowTheme.swift */; };
 		566067FC2A73CD54006A73C5 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 566067FB2A73CD54006A73C5 /* libresolv.tbd */; };
 		567B39922AFFA0BC00D0FB4A /* RunestoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B39912AFFA0BC00D0FB4A /* RunestoneView.swift */; };
 		56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C403192A73CBEB00BB8743 /* TypstApp.swift */; };
 		56C4031C2A73CBEB00BB8743 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4031B2A73CBEB00BB8743 /* ContentView.swift */; };
 		56C4031E2A73CBEC00BB8743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C4031D2A73CBEC00BB8743 /* Assets.xcassets */; };
 		56C5D1592A7443030008F156 /* TypstFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5D1582A7443030008F156 /* TypstFile.swift */; };
-		56C5D15C2A7445420008F156 /* SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5D15B2A7445420008F156 /* SwiftExtension.swift */; };
 		56E0F1582A74D6FC00AF917C /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0F1572A74D6FC00AF917C /* PDFView.swift */; };
 		56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0F1632A74E8FD00AF917C /* TypstLang.swift */; };
 		56F5E8392AFF51600051C039 /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = 56F5E8382AFF51600051C039 /* Runestone */; };
@@ -42,9 +41,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		563230EA2A751C1F00B69D3A /* UUIDExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtension.swift; sourceTree = "<group>"; };
 		563230EC2A75228300B69D3A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		56483EF32A73E83800BD8AA8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		564859F22B04C63B00FB2879 /* TomorrowTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowTheme.swift; sourceTree = "<group>"; };
 		566067FB2A73CD54006A73C5 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		567B39912AFFA0BC00D0FB4A /* RunestoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunestoneView.swift; sourceTree = "<group>"; };
 		56C403162A73CBEB00BB8743 /* TypstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +53,6 @@
 		56C5D1552A742FE70008F156 /* TypstApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TypstApp.entitlements; sourceTree = "<group>"; };
 		56C5D1582A7443030008F156 /* TypstFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstFile.swift; sourceTree = "<group>"; };
 		56C5D15A2A7444170008F156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56C5D15B2A7445420008F156 /* SwiftExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtension.swift; sourceTree = "<group>"; };
 		56E0F1572A74D6FC00AF917C /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
 		56E0F1632A74E8FD00AF917C /* TypstLang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstLang.swift; sourceTree = "<group>"; };
 		56F5E83A2AFF537C0051C039 /* parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
@@ -81,15 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		563230E92A751C1100B69D3A /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				56C5D15B2A7445420008F156 /* SwiftExtension.swift */,
-				563230EA2A751C1F00B69D3A /* UUIDExtension.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		564859F02B04C20400FB2879 /* TypstLangAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +89,14 @@
 				56F5E83C2AFF53A40051C039 /* scanner.cc */,
 			);
 			path = TypstLangAssets;
+			sourceTree = "<group>";
+		};
+		564859F12B04C61500FB2879 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				564859F22B04C63B00FB2879 /* TomorrowTheme.swift */,
+			);
+			path = Themes;
 			sourceTree = "<group>";
 		};
 		566067F92A73CD0F006A73C5 /* Frameworks */ = {
@@ -134,8 +131,7 @@
 			children = (
 				56FE41A12AB1DC6200A09A37 /* Assets */,
 				56FE41A22AB1DC7E00A09A37 /* Bridge */,
-				563230E92A751C1100B69D3A /* Extension */,
-				56FE41A42AB1DCB400A09A37 /* Model */,
+				56FE41A42AB1DCB400A09A37 /* Models */,
 				564859F02B04C20400FB2879 /* TypstLangAssets */,
 				56FE41A32AB1DC9F00A09A37 /* View */,
 				56C403192A73CBEB00BB8743 /* TypstApp.swift */,
@@ -172,14 +168,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		56FE41A42AB1DCB400A09A37 /* Model */ = {
+		56FE41A42AB1DCB400A09A37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				564859F12B04C61500FB2879 /* Themes */,
 				56C5D1582A7443030008F156 /* TypstFile.swift */,
 				56E0F1632A74E8FD00AF917C /* TypstLang.swift */,
 				56FE41A52AB1DFC800A09A37 /* TypstRender.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,12 +264,11 @@
 				56E0F1582A74D6FC00AF917C /* PDFView.swift in Sources */,
 				567B39922AFFA0BC00D0FB4A /* RunestoneView.swift in Sources */,
 				56F5E83D2AFF53A40051C039 /* scanner.cc in Sources */,
-				56C5D15C2A7445420008F156 /* SwiftExtension.swift in Sources */,
+				564859F32B04C63B00FB2879 /* TomorrowTheme.swift in Sources */,
 				56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */,
 				56C5D1592A7443030008F156 /* TypstFile.swift in Sources */,
 				56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */,
 				56FE41A62AB1DFC800A09A37 /* TypstRender.swift in Sources */,
-				563230EB2A751C1F00B69D3A /* UUIDExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

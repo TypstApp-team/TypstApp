@@ -1,23 +1,14 @@
 //
-//  TypstLang.swift
+//  TomorrowTheme.swift
 //  TypstApp
 //
-//  Created by Tiankai Ma on 2023/7/29.
+//  Created by TianKai Ma on 2023/11/15.
 //
 
-import Foundation
 import Runestone
 import UIKit
 
-extension TreeSitterLanguage {
-    static let typst = TreeSitterLanguage(
-        tree_sitter_typst()!,
-        highlightsQuery: .init(contentsOf: Bundle.main.url(forResource: "highlights", withExtension: "scm")!),
-        injectionsQuery: .init(contentsOf: Bundle.main.url(forResource: "injections", withExtension: "scm")!)
-    )
-}
-
-enum HighlightName: String {
+private enum HighlightName: String {
     case comment
     case function
     case keyword

@@ -13,6 +13,10 @@ extension UTType {
     static let typstDocument = UTType("app.typst.typ")!
 }
 
+enum TypstFileDecodeError: String, Error {
+    case dataCorrupted = "Cannot decode file."
+}
+
 struct TypstFile {
     var id = UUID()
     var code: String
@@ -20,10 +24,11 @@ struct TypstFile {
 
     /// Load from file
     init(configuration: ReadConfiguration) throws {
+        
         guard let data = configuration.file.regularFileContents,
             let code = String(data: data, encoding: .utf8)
         else {
-            throw BaseError.runtimeError("data corrupted")
+            throw TypstFileDecodeError.dataCorrupted
         }
 
         self.code = code
@@ -44,25 +49,16 @@ extension TypstFile: FileDocument {
     static var readableContentTypes: [UTType] = [.typstDocument]
     static var writableContentTypes: [UTType] = [.typstDocument, .pdf, .png]
 
-    func fileWrapper(
-        configuration: WriteConfiguration
-    ) throws -> FileWrapper {
+    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         let data = code.data(using: .utf8)!
         return .init(regularFileWithContents: data)
     }
 
-    func snapshot(
-        contentType: UTType
-    ) throws -> String {
+    func snapshot(contentType: UTType) throws -> String {
         code
     }
 
-    func fileWrapper(
-        snapshot: String,
-        configuration: WriteConfiguration
-    ) throws
-        -> FileWrapper
-    {
+    func fileWrapper(snapshot: String, configuration: WriteConfiguration) throws -> FileWrapper {
         let data = code.data(using: .utf8)!
         return .init(regularFileWithContents: data)
     }
