@@ -8,40 +8,40 @@
 import Foundation
 import PDFKit
 
-var baseURL: URL {
+var documentBaseURL: URL {
     FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0]
 }
 
-var docsURL: URL {
-    baseURL.appending(path: "docs")
-}
-
 extension TypstFile {
-    func renderPDF() -> (pdf: PDFDocument?, url: URL?) {
+    var renderedPDFURL: URL {
+        // This is where the rendered PDF should be
+        return documentBaseURL
+            .appending(path: "tmp")
+            .appending(path: self.id.uuidString)
+            .appendingPathComponent(self.title, conformingTo: .pdf)
+    }
+    
+    var tmpFileURL: URL {
+        // This is where the rendered PDF should be
+        return documentBaseURL
+            .appending(path: "tmp")
+            .appending(path: self.id.uuidString)
+            .appendingPathComponent(self.title, conformingTo: .typ)
+    }
+    
+    func renderPDF() {
         let fm = FileManager.default
-        let dirURL = docsURL.appending(path: self.id.uuidString)
-        let tmpDocsURL = dirURL.appendingPathComponent(
-            self.title,
-            conformingTo: .typstDocument
-        )
-        let tmpPDFURL = dirURL.appendingPathComponent(
-            self.title,
-            conformingTo: .pdf
-        )
 
-        try! fm.createDirectory(at: docsURL, withIntermediateDirectories: true)
-        try! fm.createDirectory(at: dirURL, withIntermediateDirectories: true)
+        try! fm.createDirectory(at: tmpFileURL.deletingLastPathComponent(), withIntermediateDirectories: true)
 
         fm.createFile(
-            atPath: tmpDocsURL.path,
+            atPath: tmpFileURL.path,
             contents: code.data(using: .utf8)
         )
 
-        let tmpDocsPath = tmpDocsURL.path.replacing(" ", with: "\\ ")
-        let tmpPDFPath = tmpPDFURL.path.replacing(" ", with: "\\ ")
+        let tmpFilePath = tmpFileURL.path.replacing(" ", with: "\\ ")
+        let tmpPDFPath = renderedPDFURL.path.replacing(" ", with: "\\ ")
 
-        run("typst compile \(tmpDocsPath) \(tmpPDFPath)")
-        let pdf = PDFDocument(url: tmpPDFURL)
-        return (pdf, tmpPDFURL)
+        run("typst compile \(tmpFilePath) \(tmpPDFPath)")
     }
 }

@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		564859F32B04C63B00FB2879 /* TomorrowTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564859F22B04C63B00FB2879 /* TomorrowTheme.swift */; };
+		564859F52B04C88600FB2879 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564859F42B04C88600FB2879 /* EditorView.swift */; };
 		566067FC2A73CD54006A73C5 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 566067FB2A73CD54006A73C5 /* libresolv.tbd */; };
 		567B39922AFFA0BC00D0FB4A /* RunestoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B39912AFFA0BC00D0FB4A /* RunestoneView.swift */; };
 		56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C403192A73CBEB00BB8743 /* TypstApp.swift */; };
-		56C4031C2A73CBEB00BB8743 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4031B2A73CBEB00BB8743 /* ContentView.swift */; };
 		56C4031E2A73CBEC00BB8743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C4031D2A73CBEC00BB8743 /* Assets.xcassets */; };
 		56C5D1592A7443030008F156 /* TypstFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5D1582A7443030008F156 /* TypstFile.swift */; };
 		56E0F1582A74D6FC00AF917C /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0F1572A74D6FC00AF917C /* PDFView.swift */; };
@@ -44,11 +44,11 @@
 		563230EC2A75228300B69D3A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		56483EF32A73E83800BD8AA8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		564859F22B04C63B00FB2879 /* TomorrowTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowTheme.swift; sourceTree = "<group>"; };
+		564859F42B04C88600FB2879 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		566067FB2A73CD54006A73C5 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		567B39912AFFA0BC00D0FB4A /* RunestoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunestoneView.swift; sourceTree = "<group>"; };
 		56C403162A73CBEB00BB8743 /* TypstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C403192A73CBEB00BB8743 /* TypstApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstApp.swift; sourceTree = "<group>"; };
-		56C4031B2A73CBEB00BB8743 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		56C4031D2A73CBEC00BB8743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56C5D1552A742FE70008F156 /* TypstApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TypstApp.entitlements; sourceTree = "<group>"; };
 		56C5D1582A7443030008F156 /* TypstFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstFile.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 		56FE41A32AB1DC9F00A09A37 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56C4031B2A73CBEB00BB8743 /* ContentView.swift */,
+				564859F42B04C88600FB2879 /* EditorView.swift */,
 				56E0F1572A74D6FC00AF917C /* PDFView.swift */,
 				567B39912AFFA0BC00D0FB4A /* RunestoneView.swift */,
 			);
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56C4031C2A73CBEB00BB8743 /* ContentView.swift in Sources */,
+				564859F52B04C88600FB2879 /* EditorView.swift in Sources */,
 				56F5E83B2AFF537C0051C039 /* parser.c in Sources */,
 				56E0F1582A74D6FC00AF917C /* PDFView.swift in Sources */,
 				567B39922AFFA0BC00D0FB4A /* RunestoneView.swift in Sources */,

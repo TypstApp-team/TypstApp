@@ -20,3 +20,7 @@ extension TreeSitterLanguage {
         )
     )
 }
+
+extension TreeSitterLanguageMode {
+    static let typst = TreeSitterLanguageMode(language: .typst)
+}

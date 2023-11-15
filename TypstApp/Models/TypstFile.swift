@@ -10,7 +10,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 extension UTType {
-    static let typstDocument = UTType("app.typst.typ")!
+    static let typ = UTType("app.typst.typ")!
 }
 
 enum TypstFileDecodeError: String, Error {
@@ -46,8 +46,8 @@ struct TypstFile {
 }
 
 extension TypstFile: FileDocument {
-    static var readableContentTypes: [UTType] = [.typstDocument]
-    static var writableContentTypes: [UTType] = [.typstDocument, .pdf, .png]
+    static var readableContentTypes: [UTType] = [.typ]
+    static var writableContentTypes: [UTType] = [.typ, .pdf, .png]
 
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         let data = code.data(using: .utf8)!
