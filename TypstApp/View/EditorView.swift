@@ -44,12 +44,9 @@ struct EditorView: UIViewRepresentable {
         view.distribution = .fillEqually
         
         Task.detached {
-//            document.watchPDF()
-//            assert(true)
-            
             repeat {
                 document.renderPDF()
-                try await Task.sleep(for: .seconds(2))
+                try await Task.sleep(for: .seconds(0.5))
             } while(true)
         }
 

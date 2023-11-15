@@ -18,7 +18,6 @@ extension TypstFile {
         return
             documentBaseURL
             .appending(path: "tmp")
-            .appending(path: self.id.uuidString)
             .appendingPathComponent(self.title, conformingTo: .pdf)
     }
 
@@ -27,7 +26,6 @@ extension TypstFile {
         return
             documentBaseURL
             .appending(path: "tmp")
-            .appending(path: self.id.uuidString)
             .appendingPathComponent(self.title, conformingTo: .typ)
     }
 
@@ -45,21 +43,5 @@ extension TypstFile {
         let tmpPDFPath = renderedPDFURL.path.replacing(" ", with: "\\ ")
 
         run("typst compile \(tmpFilePath) \(tmpPDFPath)")
-    }
-    
-    func watchPDF() {
-        let fm = FileManager.default
-        
-        try! fm.createDirectory(at: tmpFileURL.deletingLastPathComponent(), withIntermediateDirectories: true)
-        
-        fm.createFile(
-            atPath: tmpFileURL.path,
-            contents: code.data(using: .utf8)
-        )
-        
-        let tmpFilePath = tmpFileURL.path.replacing(" ", with: "\\ ")
-        let tmpPDFPath = renderedPDFURL.path.replacing(" ", with: "\\ ")
-        
-        run("typst watch \(tmpFilePath) \(tmpPDFPath)")
     }
 }
