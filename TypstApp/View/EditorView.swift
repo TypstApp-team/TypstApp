@@ -34,6 +34,7 @@ struct EditorView: UIViewRepresentable {
         textView.autocapitalizationType = .none
         textView.smartQuotesType = .no
         textView.text = document.code
+        textView.insertionPointColor = .accent
 
         pdfView.document = PDFDocument(url: url)
         pdfView.autoScales = true
@@ -41,14 +42,29 @@ struct EditorView: UIViewRepresentable {
         let view = UIStackView(arrangedSubviews: [textView, pdfView])
         view.axis = .horizontal
         view.distribution = .fillEqually
+        
+        Task.detached {
+//            document.watchPDF()
+//            assert(true)
+            
+            repeat {
+                document.renderPDF()
+                try await Task.sleep(for: .seconds(2))
+            } while(true)
+        }
 
         return view
     }
 
     func updateUIView(_ view: UIStackView, context: Context) {
-        document.renderPDF()
-        (view.subviews.last as! PDFView).document = PDFDocument(url: url)
-        view.subviews.first?.becomeFirstResponder()
+        let textView = (view.subviews.first as! TextView)
+        let pdfView = (view.subviews.last as! PDFView)
+
+        pdfView.document = PDFDocument(url: url)
+        
+        document.code = textView.text
+        textView.becomeFirstResponder()
+        textView.insertionPointColor = .red
     }
 
     func makeCoordinator() -> Coordinator {
@@ -62,10 +78,6 @@ struct EditorView: UIViewRepresentable {
             self.document = document
         }
         
-        func textViewDidChange(_ textView: TextView) {
-            DispatchQueue.main.async {
-                self.document.wrappedValue.code = textView.text
-            }
-        }
+        func textViewDidChange(_ textView: TextView) {}
     }
 }

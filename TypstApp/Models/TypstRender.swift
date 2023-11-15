@@ -46,4 +46,20 @@ extension TypstFile {
 
         run("typst compile \(tmpFilePath) \(tmpPDFPath)")
     }
+    
+    func watchPDF() {
+        let fm = FileManager.default
+        
+        try! fm.createDirectory(at: tmpFileURL.deletingLastPathComponent(), withIntermediateDirectories: true)
+        
+        fm.createFile(
+            atPath: tmpFileURL.path,
+            contents: code.data(using: .utf8)
+        )
+        
+        let tmpFilePath = tmpFileURL.path.replacing(" ", with: "\\ ")
+        let tmpPDFPath = renderedPDFURL.path.replacing(" ", with: "\\ ")
+        
+        run("typst watch \(tmpFilePath) \(tmpPDFPath)")
+    }
 }
