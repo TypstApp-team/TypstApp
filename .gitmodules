@@ -1,3 +1,7 @@
 [submodule "typst"]
 	path = typst
 	url = git@github.com:TypstApp-team/typst.git
+
+[submodule "TypstLangAssets"]
+	path = TypstApp/TypstLangAssets
+	url = git@github.com:TypstApp-team/TypstLangAssets.git
