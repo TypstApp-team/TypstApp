@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		564859F32B04C63B00FB2879 /* TomorrowTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564859F22B04C63B00FB2879 /* TomorrowTheme.swift */; };
+		564859F32B04C63B00FB2879 /* BaseTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564859F22B04C63B00FB2879 /* BaseTheme.swift */; };
 		564859F52B04C88600FB2879 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564859F42B04C88600FB2879 /* EditorView.swift */; };
 		564859F72B04D46A00FB2879 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564859F62B04D46A00FB2879 /* ContentView.swift */; };
 		566067FC2A73CD54006A73C5 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 566067FB2A73CD54006A73C5 /* libresolv.tbd */; };
+		567DFC672B04FA9F00EB80E9 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 567DFC662B04FA9F00EB80E9 /* RxCocoa */; };
+		567DFC692B04FA9F00EB80E9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 567DFC682B04FA9F00EB80E9 /* RxSwift */; };
 		56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C403192A73CBEB00BB8743 /* TypstApp.swift */; };
 		56C4031E2A73CBEC00BB8743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C4031D2A73CBEC00BB8743 /* Assets.xcassets */; };
 		56C5D1592A7443030008F156 /* TypstFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5D1582A7443030008F156 /* TypstFile.swift */; };
@@ -42,7 +44,7 @@
 /* Begin PBXFileReference section */
 		563230EC2A75228300B69D3A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		56483EF32A73E83800BD8AA8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		564859F22B04C63B00FB2879 /* TomorrowTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowTheme.swift; sourceTree = "<group>"; };
+		564859F22B04C63B00FB2879 /* BaseTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTheme.swift; sourceTree = "<group>"; };
 		564859F42B04C88600FB2879 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		564859F62B04D46A00FB2879 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		566067FB2A73CD54006A73C5 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
@@ -71,6 +73,8 @@
 				566067FC2A73CD54006A73C5 /* libresolv.tbd in Frameworks */,
 				56F5E8412AFF65250051C039 /* libtypst_library.a in Frameworks */,
 				56F5E8392AFF51600051C039 /* Runestone in Frameworks */,
+				567DFC672B04FA9F00EB80E9 /* RxCocoa in Frameworks */,
+				567DFC692B04FA9F00EB80E9 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +96,7 @@
 		564859F12B04C61500FB2879 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				564859F22B04C63B00FB2879 /* TomorrowTheme.swift */,
+				564859F22B04C63B00FB2879 /* BaseTheme.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -195,6 +199,8 @@
 			name = TypstApp;
 			packageProductDependencies = (
 				56F5E8382AFF51600051C039 /* Runestone */,
+				567DFC662B04FA9F00EB80E9 /* RxCocoa */,
+				567DFC682B04FA9F00EB80E9 /* RxSwift */,
 			);
 			productName = TypstApp;
 			productReference = 56C403162A73CBEB00BB8743 /* TypstApp.app */;
@@ -226,6 +232,7 @@
 			mainGroup = 56C4030D2A73CBEB00BB8743;
 			packageReferences = (
 				56F5E8372AFF51600051C039 /* XCRemoteSwiftPackageReference "Runestone" */,
+				567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 56C403172A73CBEB00BB8743 /* Products */;
 			projectDirPath = "";
@@ -256,11 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564859F32B04C63B00FB2879 /* BaseTheme.swift in Sources */,
 				564859F72B04D46A00FB2879 /* ContentView.swift in Sources */,
 				564859F52B04C88600FB2879 /* EditorView.swift in Sources */,
 				56F5E83B2AFF537C0051C039 /* parser.c in Sources */,
 				56F5E83D2AFF53A40051C039 /* scanner.cc in Sources */,
-				564859F32B04C63B00FB2879 /* TomorrowTheme.swift in Sources */,
 				56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */,
 				56C5D1592A7443030008F156 /* TypstFile.swift in Sources */,
 				56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */,
@@ -516,6 +523,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
 		56F5E8372AFF51600051C039 /* XCRemoteSwiftPackageReference "Runestone" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/simonbs/Runestone";
@@ -527,6 +542,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		567DFC662B04FA9F00EB80E9 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		567DFC682B04FA9F00EB80E9 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		56F5E8382AFF51600051C039 /* Runestone */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 56F5E8372AFF51600051C039 /* XCRemoteSwiftPackageReference "Runestone" */;

@@ -9,6 +9,7 @@ import PDFKit
 import Runestone
 import SwiftUI
 import UIKit
+import RxSwift
 
 struct EditorView: UIViewRepresentable {
     typealias Context = UIViewRepresentableContext<EditorView>
@@ -19,23 +20,14 @@ struct EditorView: UIViewRepresentable {
         document.renderedPDFURL
     }
 
-    @State var _run_once: Bool = false
-
-    var run_once: Bool {
-        guard _run_once else {
-            _run_once = true
-            return true
-        }
-        return false
-    }
-
     func makeUIView(context: Context) -> UIStackView {
         let textView = TextView()
         let pdfView = PDFView()
 
         textView.showLineNumbers = true
         textView.lineSelectionDisplayType = .lineFragment
-        textView.theme = TomorrowTheme()
+        textView.theme = BaseTheme()
+        textView.backgroundColor = .systemBackground
         textView.editorDelegate = context.coordinator
         textView.setLanguageMode(TreeSitterLanguageMode.typst)
         textView.autocorrectionType = .no
@@ -73,12 +65,6 @@ struct EditorView: UIViewRepresentable {
         func textViewDidChange(_ textView: TextView) {
             DispatchQueue.main.async {
                 self.document.wrappedValue.code = textView.text
-            }
-        }
-        
-        func textViewDidEndEditing(_ textView: TextView) {
-            Task.detached {
-                self.document.wrappedValue.renderPDF()
             }
         }
     }
