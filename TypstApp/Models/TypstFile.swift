@@ -32,7 +32,7 @@ struct TypstFile {
         }
 
         self.code = code
-        self.title = configuration.file.filename ?? "Untitled"
+        self.title = (configuration.file.preferredFilename as NSString?)?.deletingPathExtension ?? "Untitled"
     }
 
     /// New document
