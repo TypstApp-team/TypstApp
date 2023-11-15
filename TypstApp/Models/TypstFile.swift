@@ -24,7 +24,7 @@ struct TypstFile {
 
     /// Load from file
     init(configuration: ReadConfiguration) throws {
-        
+
         guard let data = configuration.file.regularFileContents,
             let code = String(data: data, encoding: .utf8)
         else {

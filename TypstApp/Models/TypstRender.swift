@@ -15,20 +15,22 @@ var documentBaseURL: URL {
 extension TypstFile {
     var renderedPDFURL: URL {
         // This is where the rendered PDF should be
-        return documentBaseURL
+        return
+            documentBaseURL
             .appending(path: "tmp")
             .appending(path: self.id.uuidString)
             .appendingPathComponent(self.title, conformingTo: .pdf)
     }
-    
+
     var tmpFileURL: URL {
         // This is where the rendered PDF should be
-        return documentBaseURL
+        return
+            documentBaseURL
             .appending(path: "tmp")
             .appending(path: self.id.uuidString)
             .appendingPathComponent(self.title, conformingTo: .typ)
     }
-    
+
     func renderPDF() {
         let fm = FileManager.default
 
