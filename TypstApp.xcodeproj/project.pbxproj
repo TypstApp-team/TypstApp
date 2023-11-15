@@ -90,6 +90,18 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		564859F02B04C20400FB2879 /* TypstLangAssets */ = {
+			isa = PBXGroup;
+			children = (
+				56F5E83E2AFF5FB90051C039 /* Example.typ */,
+				56F5E8422AFF65AF0051C039 /* highlights.scm */,
+				56F5E8432AFF65AF0051C039 /* injections.scm */,
+				56F5E83A2AFF537C0051C039 /* parser.c */,
+				56F5E83C2AFF53A40051C039 /* scanner.cc */,
+			);
+			path = TypstLangAssets;
+			sourceTree = "<group>";
+		};
 		566067F92A73CD0F006A73C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +136,7 @@
 				56FE41A22AB1DC7E00A09A37 /* Bridge */,
 				563230E92A751C1100B69D3A /* Extension */,
 				56FE41A42AB1DCB400A09A37 /* Model */,
+				564859F02B04C20400FB2879 /* TypstLangAssets */,
 				56FE41A32AB1DC9F00A09A37 /* View */,
 				56C403192A73CBEB00BB8743 /* TypstApp.swift */,
 			);
@@ -135,10 +148,7 @@
 			children = (
 				56C4031D2A73CBEC00BB8743 /* Assets.xcassets */,
 				56F5E8462AFF69DF0051C039 /* Colors.xcassets */,
-				56F5E83E2AFF5FB90051C039 /* Example.typ */,
-				56F5E8422AFF65AF0051C039 /* highlights.scm */,
 				56C5D15A2A7444170008F156 /* Info.plist */,
-				56F5E8432AFF65AF0051C039 /* injections.scm */,
 				56C5D1552A742FE70008F156 /* TypstApp.entitlements */,
 			);
 			path = Assets;
@@ -165,8 +175,6 @@
 		56FE41A42AB1DCB400A09A37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				56F5E83A2AFF537C0051C039 /* parser.c */,
-				56F5E83C2AFF53A40051C039 /* scanner.cc */,
 				56C5D1582A7443030008F156 /* TypstFile.swift */,
 				56E0F1632A74E8FD00AF917C /* TypstLang.swift */,
 				56FE41A52AB1DFC800A09A37 /* TypstRender.swift */,
