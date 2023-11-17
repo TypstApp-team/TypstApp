@@ -49,9 +49,12 @@ class EditorController: UIViewController {
     private var pdfView: PDFView = {
         let pdfView = PDFView()
         pdfView.autoScales = true
+        pdfView.backgroundColor = .systemBackground
         
         return pdfView
     }()
+    
+    private var stackView = UIStackView()
     
     @objc func dismissEditor() {
         dismiss(animated: true, completion: nil)
@@ -105,6 +108,17 @@ class EditorController: UIViewController {
         action: #selector(displayShareMenu)
     )
     
+    @objc func setupStackView() {
+        if UIDevice.current.orientation.isLandscape {
+            stackView.removeArrangedSubview(pdfView)
+            stackView.addArrangedSubview(pdfView)
+            stackView.axis = .horizontal
+        } else {
+            stackView.removeArrangedSubview(textView)
+            stackView.addArrangedSubview(textView)
+            stackView.axis = .vertical
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,9 +128,19 @@ class EditorController: UIViewController {
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.rightBarButtonItems = [shareButton, buildButton]
         
-        let hStackView = UIStackView(arrangedSubviews: [textView, pdfView])
-        hStackView.axis = .horizontal
-        hStackView.distribution = .fillEqually
+        setupStackView()
+        
+        // listen to device rotate event
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(setupStackView),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil
+        )
+        
+        stackView = UIStackView(arrangedSubviews: [textView, pdfView])
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
         
         navigationBar.setItems([navigationItem], animated: false)
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -127,13 +151,13 @@ class EditorController: UIViewController {
             navigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
         
-        hStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(hStackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
         NSLayoutConstraint.activate([
-            hStackView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
-            hStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            hStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            hStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            stackView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
     }
