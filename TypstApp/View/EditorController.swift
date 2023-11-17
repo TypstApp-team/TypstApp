@@ -22,6 +22,7 @@ class TextViewControllerDelegate: TextViewDelegate {
     
     func textViewDidChange(_ textView: TextView) {
         editorController?.textToSaveValue.onNext(textView.text)
+        editorController?.textToRenderValue.onNext(textView.text)
     }
     
     func textViewShouldEndEditing(_ textView: TextView) -> Bool {
@@ -186,10 +187,19 @@ class EditorController: UIViewController {
             }
             .bind(to: pdfValue)
             .disposed(by: disposeBag)
-        
-        self.pdfValue
-            .bind(to: pdfView.rx.document)
+            
+        self.pdfValue.asObserver()
+            .throttle(.seconds(5), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { pdf in
+                self.pdfView.document = pdf
+            })
             .disposed(by: disposeBag)
+        
+        Task.detached {
+            repeat {
+                await self.textView.becomeFirstResponder()
+            } while(true)
+        }
         
         self.textToRenderValue.onNext(code)
     }

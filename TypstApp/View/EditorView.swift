@@ -31,8 +31,6 @@ struct EditorView: UIViewControllerRepresentable {
                 if let url = self.document.fileURL {
                     // dump the code to the file
                     try! self.document.code.write(to: url, atomically: true, encoding: .utf8)
-                    
-                    debugPrint(self.document.code)
                 }
             })
             .disposed(by: controller.disposeBag)
