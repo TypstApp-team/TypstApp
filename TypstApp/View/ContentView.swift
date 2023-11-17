@@ -17,5 +17,6 @@ struct ContentView: View {
             )
             .ignoresSafeArea(.keyboard)
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
