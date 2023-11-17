@@ -20,7 +20,10 @@ class TypstFile: FileDocument {
     var id = UUID()
     var code: String
     var filename: String
-
+    
+    // this is only loaded when the document is opened
+    var fileURL: URL?
+    
     // Save
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         let data = code.data(using: .utf8)!
@@ -38,20 +41,20 @@ class TypstFile: FileDocument {
     
     // Load
     required init(configuration: ReadConfiguration) throws {
-
+        
         guard let data = configuration.file.regularFileContents,
-            let code = String(data: data, encoding: .utf8)
+              let code = String(data: data, encoding: .utf8)
         else {
             throw TypstFileDecodeError.dataCorrupted
         }
-
+        
         self.code = code
         self.filename = (configuration.file.preferredFilename as NSString?)?.deletingPathExtension ?? "Untitled"
     }
-
+    
     // New document
     init() {
-
+        
         // Copies code from bundled Example.typ file
         self.code = try! String(
             contentsOf: Bundle.main.url(forResource: "Example", withExtension: ".typ")!,

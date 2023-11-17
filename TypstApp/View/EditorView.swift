@@ -24,10 +24,18 @@ struct EditorView: UIViewControllerRepresentable {
             code: document.code
         )
         
-        controller.textValue.asObserver().subscribe({
-            self.document.code = $0.element!
-        })
-        .disposed(by: controller.disposeBag)
+        controller.textToSaveValue.asObserver()
+            .throttle(.seconds(1), scheduler: MainScheduler.instance)
+            .subscribe({
+                self.document.code = $0.element!
+                if let url = self.document.fileURL {
+                    // dump the code to the file
+                    try! self.document.code.write(to: url, atomically: true, encoding: .utf8)
+                    
+                    debugPrint(self.document.code)
+                }
+            })
+            .disposed(by: controller.disposeBag)
         
         return controller
     }

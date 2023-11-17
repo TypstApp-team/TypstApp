@@ -17,7 +17,11 @@ class TextViewControllerDelegate: TextViewDelegate {
     var editorController: EditorController?
     
     func textViewDidEndEditing(_ textView: TextView) {
-        editorController?.textValue.onNext(textView.text)
+        editorController?.textToRenderValue.onNext(textView.text)
+    }
+    
+    func textViewDidChange(_ textView: TextView) {
+        editorController?.textToSaveValue.onNext(textView.text)
     }
     
     func textViewShouldEndEditing(_ textView: TextView) -> Bool {
@@ -26,7 +30,8 @@ class TextViewControllerDelegate: TextViewDelegate {
 }
 
 class EditorController: UIViewController {
-    let textValue = PublishSubject<String>()
+    let textToRenderValue = PublishSubject<String>()
+    let textToSaveValue = PublishSubject<String>()
     let pdfValue = PublishSubject<PDFDocument?>()
     let disposeBag = DisposeBag()
     
@@ -61,7 +66,7 @@ class EditorController: UIViewController {
     }
     
     @objc func triggerBuild() {
-        self.textValue.onNext(textView.text)
+        self.textToRenderValue.onNext(textView.text)
     }
     
     @objc func displayShareMenu() {
@@ -175,7 +180,7 @@ class EditorController: UIViewController {
         self.pdfView.document = pdf
         
         // use rx to bind textValue -> pdfValue, and bind pdfValue to pdfView
-        self.textValue
+        self.textToRenderValue
             .map { code in
                 renderTypstCodeToPDF(code: code).docs
             }
@@ -186,7 +191,7 @@ class EditorController: UIViewController {
             .bind(to: pdfView.rx.document)
             .disposed(by: disposeBag)
         
-        self.textValue.onNext(code)
+        self.textToRenderValue.onNext(code)
     }
     
     required init?(coder: NSCoder) {

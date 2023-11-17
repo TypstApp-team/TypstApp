@@ -14,7 +14,12 @@ struct TypstApp: App {
 
     var body: some Scene {
         DocumentGroup(newDocument: TypstFile()) { config in
-            ContentView(document: config.$document)
+            ContentView(
+                document: config.$document
+            )
+            .task {
+                config.document.fileURL = config.fileURL
+            }
         }
     }
 }
