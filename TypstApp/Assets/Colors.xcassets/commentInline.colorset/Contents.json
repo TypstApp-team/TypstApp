@@ -3,7 +3,20 @@
     {
       "color" : {
         "platform" : "ios",
-        "reference" : "lightTextColor"
+        "reference" : "systemGrayColor"
+      },
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "color" : {
+        "platform" : "ios",
+        "reference" : "systemGrayColor"
       },
       "idiom" : "universal"
     },
@@ -14,6 +27,10 @@
           "value" : "dark"
         }
       ],
+      "color" : {
+        "platform" : "ios",
+        "reference" : "systemGrayColor"
+      },
       "idiom" : "universal"
     }
   ],

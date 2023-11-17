@@ -8,40 +8,30 @@
 import Foundation
 import PDFKit
 
-var documentBaseURL: URL {
-    FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0]
+var tmpBaseURL: URL! {
+    FileManager.default.urls(for: .cachesDirectory, in: .allDomainsMask).first
 }
 
-extension TypstFile {
-    var renderedPDFURL: URL {
-        // This is where the rendered PDF should be
-        return
-            documentBaseURL
-            .appending(path: "tmp")
-            .appendingPathComponent(self.title, conformingTo: .pdf)
-    }
-
-    var tmpFileURL: URL {
-        // This is where the rendered PDF should be
-        return
-            documentBaseURL
-            .appending(path: "tmp")
-            .appendingPathComponent(self.title, conformingTo: .typ)
-    }
-
-    func renderPDF() {
-        let fm = FileManager.default
-
-        try! fm.createDirectory(at: tmpFileURL.deletingLastPathComponent(), withIntermediateDirectories: true)
-
-        fm.createFile(
-            atPath: tmpFileURL.path,
-            contents: code.data(using: .utf8)
-        )
-
-        let tmpFilePath = tmpFileURL.path.replacing(" ", with: "\\ ")
-        let tmpPDFPath = renderedPDFURL.path.replacing(" ", with: "\\ ")
-
-        run("typst compile \(tmpFilePath) \(tmpPDFPath)")
-    }
+func renderTypstCodeToPDF(code: String) -> (url: URL, docs: PDFDocument?) {
+    let fm = FileManager.default
+    
+    let fileURL = tmpBaseURL
+        .appendingPathComponent("tmp", conformingTo: .typ)
+    
+    let pdfURL = tmpBaseURL
+        .appendingPathComponent("export", conformingTo: .pdf)
+    
+    try! fm.createDirectory(
+        at: tmpBaseURL,
+        withIntermediateDirectories: true
+    )
+    
+    fm.createFile(
+        atPath: fileURL.path,
+        contents: code.data(using: .utf8)
+    )
+    
+    run("typst compile \(fileURL.path) \(pdfURL.path)")
+    
+    return (pdfURL, PDFDocument(url: pdfURL))
 }

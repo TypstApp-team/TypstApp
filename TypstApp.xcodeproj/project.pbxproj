@@ -13,9 +13,23 @@
 		566067FC2A73CD54006A73C5 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 566067FB2A73CD54006A73C5 /* libresolv.tbd */; };
 		567DFC672B04FA9F00EB80E9 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 567DFC662B04FA9F00EB80E9 /* RxCocoa */; };
 		567DFC692B04FA9F00EB80E9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 567DFC682B04FA9F00EB80E9 /* RxSwift */; };
+		56B26C082B0731EE00BD9ED9 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C072B0731EE00BD9ED9 /* RxRelay */; };
+		56B26C0A2B07322300BD9ED9 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C092B07322300BD9ED9 /* RxBlocking */; };
+		56B26C0C2B07323000BD9ED9 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C0B2B07323000BD9ED9 /* RxBlocking-Dynamic */; };
+		56B26C0D2B07323000BD9ED9 /* RxBlocking-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C0B2B07323000BD9ED9 /* RxBlocking-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		56B26C0F2B07323000BD9ED9 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C0E2B07323000BD9ED9 /* RxCocoa-Dynamic */; };
+		56B26C102B07323000BD9ED9 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C0E2B07323000BD9ED9 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		56B26C122B07323000BD9ED9 /* RxRelay-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C112B07323000BD9ED9 /* RxRelay-Dynamic */; };
+		56B26C132B07323000BD9ED9 /* RxRelay-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C112B07323000BD9ED9 /* RxRelay-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		56B26C152B07323000BD9ED9 /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C142B07323000BD9ED9 /* RxSwift-Dynamic */; };
+		56B26C162B07323000BD9ED9 /* RxSwift-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C142B07323000BD9ED9 /* RxSwift-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		56B26C182B07387500BD9ED9 /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B26C172B07387500BD9ED9 /* EditorController.swift */; };
 		56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C403192A73CBEB00BB8743 /* TypstApp.swift */; };
 		56C4031E2A73CBEC00BB8743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C4031D2A73CBEC00BB8743 /* Assets.xcassets */; };
 		56C5D1592A7443030008F156 /* TypstFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5D1582A7443030008F156 /* TypstFile.swift */; };
+		56D7B3D62B060964002D3887 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7B3D52B060964002D3887 /* Errors.swift */; };
+		56D7B3D82B0609B7002D3887 /* TypstTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7B3D72B0609B7002D3887 /* TypstTile.swift */; };
+		56D7B3DB2B060E45002D3887 /* RxBindingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7B3DA2B060E45002D3887 /* RxBindingBridge.swift */; };
 		56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0F1632A74E8FD00AF917C /* TypstLang.swift */; };
 		56F5E8392AFF51600051C039 /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = 56F5E8382AFF51600051C039 /* Runestone */; };
 		56F5E83B2AFF537C0051C039 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 56F5E83A2AFF537C0051C039 /* parser.c */; };
@@ -35,6 +49,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				56B26C0D2B07323000BD9ED9 /* RxBlocking-Dynamic in Embed Frameworks */,
+				56B26C102B07323000BD9ED9 /* RxCocoa-Dynamic in Embed Frameworks */,
+				56B26C132B07323000BD9ED9 /* RxRelay-Dynamic in Embed Frameworks */,
+				56B26C162B07323000BD9ED9 /* RxSwift-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,12 +66,16 @@
 		564859F42B04C88600FB2879 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		564859F62B04D46A00FB2879 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		566067FB2A73CD54006A73C5 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		56B26C172B07387500BD9ED9 /* EditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorController.swift; sourceTree = "<group>"; };
 		56C403162A73CBEB00BB8743 /* TypstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C403192A73CBEB00BB8743 /* TypstApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstApp.swift; sourceTree = "<group>"; };
 		56C4031D2A73CBEC00BB8743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56C5D1552A742FE70008F156 /* TypstApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TypstApp.entitlements; sourceTree = "<group>"; };
 		56C5D1582A7443030008F156 /* TypstFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstFile.swift; sourceTree = "<group>"; };
 		56C5D15A2A7444170008F156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56D7B3D52B060964002D3887 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		56D7B3D72B0609B7002D3887 /* TypstTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstTile.swift; sourceTree = "<group>"; };
+		56D7B3DA2B060E45002D3887 /* RxBindingBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBindingBridge.swift; sourceTree = "<group>"; };
 		56E0F1632A74E8FD00AF917C /* TypstLang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypstLang.swift; sourceTree = "<group>"; };
 		56F5E83A2AFF537C0051C039 /* parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
 		56F5E83C2AFF53A40051C039 /* scanner.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = scanner.cc; sourceTree = "<group>"; };
@@ -73,8 +95,14 @@
 				566067FC2A73CD54006A73C5 /* libresolv.tbd in Frameworks */,
 				56F5E8412AFF65250051C039 /* libtypst_library.a in Frameworks */,
 				56F5E8392AFF51600051C039 /* Runestone in Frameworks */,
+				56B26C0A2B07322300BD9ED9 /* RxBlocking in Frameworks */,
+				56B26C0C2B07323000BD9ED9 /* RxBlocking-Dynamic in Frameworks */,
 				567DFC672B04FA9F00EB80E9 /* RxCocoa in Frameworks */,
+				56B26C0F2B07323000BD9ED9 /* RxCocoa-Dynamic in Frameworks */,
+				56B26C082B0731EE00BD9ED9 /* RxRelay in Frameworks */,
+				56B26C122B07323000BD9ED9 /* RxRelay-Dynamic in Frameworks */,
 				567DFC692B04FA9F00EB80E9 /* RxSwift in Frameworks */,
+				56B26C152B07323000BD9ED9 /* RxSwift-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +169,14 @@
 			path = TypstApp;
 			sourceTree = "<group>";
 		};
+		56D7B3D92B060E36002D3887 /* Addons */ = {
+			isa = PBXGroup;
+			children = (
+				56D7B3DA2B060E45002D3887 /* RxBindingBridge.swift */,
+			);
+			path = Addons;
+			sourceTree = "<group>";
+		};
 		56FE41A12AB1DC6200A09A37 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				564859F62B04D46A00FB2879 /* ContentView.swift */,
+				56B26C172B07387500BD9ED9 /* EditorController.swift */,
 				564859F42B04C88600FB2879 /* EditorView.swift */,
 			);
 			path = View;
@@ -172,10 +209,13 @@
 		56FE41A42AB1DCB400A09A37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				56D7B3D92B060E36002D3887 /* Addons */,
 				564859F12B04C61500FB2879 /* Themes */,
+				56D7B3D52B060964002D3887 /* Errors.swift */,
 				56C5D1582A7443030008F156 /* TypstFile.swift */,
 				56E0F1632A74E8FD00AF917C /* TypstLang.swift */,
 				56FE41A52AB1DFC800A09A37 /* TypstRender.swift */,
+				56D7B3D72B0609B7002D3887 /* TypstTile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +241,12 @@
 				56F5E8382AFF51600051C039 /* Runestone */,
 				567DFC662B04FA9F00EB80E9 /* RxCocoa */,
 				567DFC682B04FA9F00EB80E9 /* RxSwift */,
+				56B26C072B0731EE00BD9ED9 /* RxRelay */,
+				56B26C092B07322300BD9ED9 /* RxBlocking */,
+				56B26C0B2B07323000BD9ED9 /* RxBlocking-Dynamic */,
+				56B26C0E2B07323000BD9ED9 /* RxCocoa-Dynamic */,
+				56B26C112B07323000BD9ED9 /* RxRelay-Dynamic */,
+				56B26C142B07323000BD9ED9 /* RxSwift-Dynamic */,
 			);
 			productName = TypstApp;
 			productReference = 56C403162A73CBEB00BB8743 /* TypstApp.app */;
@@ -265,13 +311,17 @@
 			files = (
 				564859F32B04C63B00FB2879 /* BaseTheme.swift in Sources */,
 				564859F72B04D46A00FB2879 /* ContentView.swift in Sources */,
+				56B26C182B07387500BD9ED9 /* EditorController.swift in Sources */,
 				564859F52B04C88600FB2879 /* EditorView.swift in Sources */,
+				56D7B3D62B060964002D3887 /* Errors.swift in Sources */,
 				56F5E83B2AFF537C0051C039 /* parser.c in Sources */,
+				56D7B3DB2B060E45002D3887 /* RxBindingBridge.swift in Sources */,
 				56F5E83D2AFF53A40051C039 /* scanner.cc in Sources */,
 				56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */,
 				56C5D1592A7443030008F156 /* TypstFile.swift in Sources */,
 				56E0F1642A74E8FD00AF917C /* TypstLang.swift in Sources */,
 				56FE41A62AB1DFC800A09A37 /* TypstRender.swift in Sources */,
+				56D7B3D82B0609B7002D3887 /* TypstTile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +601,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		56B26C072B0731EE00BD9ED9 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		56B26C092B07322300BD9ED9 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		56B26C0B2B07323000BD9ED9 /* RxBlocking-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxBlocking-Dynamic";
+		};
+		56B26C0E2B07323000BD9ED9 /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
+		};
+		56B26C112B07323000BD9ED9 /* RxRelay-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxRelay-Dynamic";
+		};
+		56B26C142B07323000BD9ED9 /* RxSwift-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxSwift-Dynamic";
 		};
 		56F5E8382AFF51600051C039 /* Runestone */ = {
 			isa = XCSwiftPackageProductDependency;

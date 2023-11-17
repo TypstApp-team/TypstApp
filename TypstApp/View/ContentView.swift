@@ -17,19 +17,5 @@ struct ContentView: View {
             )
             .ignoresSafeArea(.keyboard)
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .topBarTrailing) {
-                Button {
-                    document.renderPDF()
-                } label: {
-                    Label("Build", systemImage: "arrowtriangle.right.fill")
-                }
-                .keyboardShortcut("r", modifiers: .command)
-                
-                ShareLink(item: document.renderedPDFURL) {
-                    Label("Share", systemImage: "square.and.arrow.up")
-                }
-            }
-        }
     }
 }

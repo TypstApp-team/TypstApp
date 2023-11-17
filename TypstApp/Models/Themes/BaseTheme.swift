@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 private enum HighlightName: String {
-
+    
     case markup
     case markupRawInline = "markup.raw.inline"
     case markupRawBlock = "markup.raw.block"
@@ -63,7 +63,7 @@ private enum HighlightName: String {
     
     
     
-
+    
     public init?(_ rawHighlightName: String) {
         var comps = rawHighlightName.split(separator: ".")
         while !comps.isEmpty {
@@ -74,11 +74,7 @@ private enum HighlightName: String {
             }
             comps.removeLast()
         }
-        print(
-            "Unrecognized highlight name: '\(rawHighlightName)'."
-                + " Add the highlight name to HighlightName.swift if you want to add support for syntax highlighting it."
-                + " This message will only be shown once per highlight name."
-        )
+        assert(false, "Unknown highlight name: \(rawHighlightName)")
         return nil
     }
 }
@@ -109,7 +105,7 @@ final class BaseTheme: Theme {
         
         return UIColor(named: highlightName.rawValue)
     }
-
+    
     func fontTraits(for rawHighlightName: String) -> FontTraits {
         guard let highlightName = HighlightName(rawHighlightName) else {
             return []
