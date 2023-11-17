@@ -15,14 +15,6 @@
 		567DFC692B04FA9F00EB80E9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 567DFC682B04FA9F00EB80E9 /* RxSwift */; };
 		56B26C082B0731EE00BD9ED9 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C072B0731EE00BD9ED9 /* RxRelay */; };
 		56B26C0A2B07322300BD9ED9 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C092B07322300BD9ED9 /* RxBlocking */; };
-		56B26C0C2B07323000BD9ED9 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C0B2B07323000BD9ED9 /* RxBlocking-Dynamic */; };
-		56B26C0D2B07323000BD9ED9 /* RxBlocking-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C0B2B07323000BD9ED9 /* RxBlocking-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		56B26C0F2B07323000BD9ED9 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C0E2B07323000BD9ED9 /* RxCocoa-Dynamic */; };
-		56B26C102B07323000BD9ED9 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C0E2B07323000BD9ED9 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		56B26C122B07323000BD9ED9 /* RxRelay-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C112B07323000BD9ED9 /* RxRelay-Dynamic */; };
-		56B26C132B07323000BD9ED9 /* RxRelay-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C112B07323000BD9ED9 /* RxRelay-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		56B26C152B07323000BD9ED9 /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C142B07323000BD9ED9 /* RxSwift-Dynamic */; };
-		56B26C162B07323000BD9ED9 /* RxSwift-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56B26C142B07323000BD9ED9 /* RxSwift-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		56B26C182B07387500BD9ED9 /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B26C172B07387500BD9ED9 /* EditorController.swift */; };
 		56C4031A2A73CBEB00BB8743 /* TypstApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C403192A73CBEB00BB8743 /* TypstApp.swift */; };
 		56C4031E2A73CBEC00BB8743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C4031D2A73CBEC00BB8743 /* Assets.xcassets */; };
@@ -49,10 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				56B26C0D2B07323000BD9ED9 /* RxBlocking-Dynamic in Embed Frameworks */,
-				56B26C102B07323000BD9ED9 /* RxCocoa-Dynamic in Embed Frameworks */,
-				56B26C132B07323000BD9ED9 /* RxRelay-Dynamic in Embed Frameworks */,
-				56B26C162B07323000BD9ED9 /* RxSwift-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,13 +84,9 @@
 				56F5E8412AFF65250051C039 /* libtypst_library.a in Frameworks */,
 				56F5E8392AFF51600051C039 /* Runestone in Frameworks */,
 				56B26C0A2B07322300BD9ED9 /* RxBlocking in Frameworks */,
-				56B26C0C2B07323000BD9ED9 /* RxBlocking-Dynamic in Frameworks */,
 				567DFC672B04FA9F00EB80E9 /* RxCocoa in Frameworks */,
-				56B26C0F2B07323000BD9ED9 /* RxCocoa-Dynamic in Frameworks */,
 				56B26C082B0731EE00BD9ED9 /* RxRelay in Frameworks */,
-				56B26C122B07323000BD9ED9 /* RxRelay-Dynamic in Frameworks */,
 				567DFC692B04FA9F00EB80E9 /* RxSwift in Frameworks */,
-				56B26C152B07323000BD9ED9 /* RxSwift-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,10 +227,6 @@
 				567DFC682B04FA9F00EB80E9 /* RxSwift */,
 				56B26C072B0731EE00BD9ED9 /* RxRelay */,
 				56B26C092B07322300BD9ED9 /* RxBlocking */,
-				56B26C0B2B07323000BD9ED9 /* RxBlocking-Dynamic */,
-				56B26C0E2B07323000BD9ED9 /* RxCocoa-Dynamic */,
-				56B26C112B07323000BD9ED9 /* RxRelay-Dynamic */,
-				56B26C142B07323000BD9ED9 /* RxSwift-Dynamic */,
 			);
 			productName = TypstApp;
 			productReference = 56C403162A73CBEB00BB8743 /* TypstApp.app */;
@@ -611,26 +591,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxBlocking;
-		};
-		56B26C0B2B07323000BD9ED9 /* RxBlocking-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxBlocking-Dynamic";
-		};
-		56B26C0E2B07323000BD9ED9 /* RxCocoa-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxCocoa-Dynamic";
-		};
-		56B26C112B07323000BD9ED9 /* RxRelay-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxRelay-Dynamic";
-		};
-		56B26C142B07323000BD9ED9 /* RxSwift-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567DFC512B04FA2600EB80E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxSwift-Dynamic";
 		};
 		56F5E8382AFF51600051C039 /* Runestone */ = {
 			isa = XCSwiftPackageProductDependency;
